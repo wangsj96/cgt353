@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#dfdfdf;
+	color:#8f8f8f;	
+}
+#page{
+	width:960px;
+	margin:0 auto;	
+}
+#main-content{
+	width:670px;	
+}
+.container{
+	display:block;
+	width:650px;
+	height:350px;
+	margin:20px auto 80px auto;
+	position:relative;
+	background:url(../images/slider_bg.png) no-repeat center;	
+}
+.image_wrapper{
+	width:650px;
+	height:350px;
+	overflow:hidden;
+	position:relative;
+	margin:0 auto;
+}
+.image_wrapper img{
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+.prev, .next{
+	width:30px;
+	height:59px;
+	position:absolute;
+	top:50%;
+	margin-top:-40px;
+	cursor:pointer;
+	opacity:0.5;	
+}
+.prev{
+	background:transparent url(../images/prev.png)	no-repeat top center;
+	left:20px;
+}
+.next{
+	background:transparent url(../images/next.png)	no-repeat top center;
+	right:20px;
+}
+.prev:hover, .next:hover{
+	opacity:0.9;
+}
+ul.nav{
+	list-style:none;
+	padding:0;
+	width:140px;/*change this if there are more images*/
+	margin:20px auto;
+	position:relative;
+}
+ul.nav li{
+	float:left;
+}
+ul.nav li a{
+	display:block;
+	text-indent:-9000px;/*	remove the li from the screen*/
+	width:13px;
+	height:13px;
+	outline:none;
+	padding:0px 3px;
+	background:transparent url(../images/dot2.png) no-repeat top center;
+}
+ul.nav li a:hover, ul.nav li.selected a{
+	background-position:20% -30px;	
+}
+ul.nav li.preview{
+	display:none;
+	width:85px;
+	height:91px;
+	top:-95px;
+	left:-34.5px;
+	position:absolute;	
+}
+ul.nav li.preview span{
+	background:transparent url(../images/triangle.png) no-repeat top center;
+	width:15px;
+	height:6px;
+	position:absolute;
+	top:85px;
+	left:35px;	
+}
+.preview_wrapper{
+	width:75px;
+	height:75px;
+	border:5px solid #fff;
+	overflow:hidden;
+	position:relative;
+	-moz-box-shadow:0px 0px 5px #999;
+	-webkit-box-shadow:0px 0px 5px #999;
+	box-shadow:0px 0px 5px #999;
+}
+.preview_wrapper img{
+	position:absolute;
+	top:0px;
+	left:0px;	
+}
+#pic2{
+	left:660px;	
+}
+#pic3{
+	left:1310px;	
+}
+#pic4{
+	left:1960px;	
+}
+#pic5{
+	left:2610px;	
+}
+#pic6{
+	left:3260px;	
+}
+#pic7{
+	left:3910px;	
+}
+li.prevNav()

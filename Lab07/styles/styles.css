@@ -1,0 +1,1258 @@
+/* fixed side bar*/
+		#contactForm {
+			width:400px;
+			height:250px;
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:9pt;
+			font-weight:bold;
+			position:absolute; 
+			top:250px; 
+			left:-400px;
+			background-color: rgb(50, 50, 50); 
+			background-color: rgba(50, 50, 50, .99);
+			margin:0px; 
+			z-index:110;
+		}
+		#contact span {
+			padding:0px;
+			margin:0px;
+			position:relative;
+			top:2px;
+		}
+        #contact { 
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:9pt;
+			font-weight:bold;
+			text-align:center;
+			padding-top:17px;
+			padding-bottom:0px;
+			padding-left:3px;
+			padding-right:3px;
+			position:absolute; 
+			top:350px; 
+			left:-42px; 
+			border-radius:10px;
+			background-color: rgb(177, 148, 108); 
+			background-color: rgba(177, 148, 108, .75);
+			width:90px; 
+			height:25px; 
+			margin:0px; 
+			z-index:100;
+		}
+		#contact:hover, 
+		#contact:focus {
+			background-color: rgb(177, 148, 108); 
+			background-color: rgba(177, 148, 108, .90);
+			cursor:pointer;
+		}
+        #contact.fixed,
+		#contactForm.fixed { 
+			position:fixed; 
+		}
+		.rotate {
+			/* Firefox */
+			-moz-transform: rotate(-90deg);
+			/* Safari */
+			-webkit-transform: rotate(-90deg);
+			/* IE */
+			-ms-transform: rotate(-90deg);
+			/* Opera */
+			-o-transform: rotate(-90deg);
+			/* Internet Explorer */
+			filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
+		}
+/*end fixed side bar*/
+
+/* reset */
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	text-decoration: none;
+	outline: none;
+	font-size: 1em;
+}
+
+/* end */
+
+/* default */
+
+body {
+	background: #ddd url(../img/body.gif) repeat fixed 0 0;
+	font: 14px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+	/*text-shadow: #ddd 0 0 0;*/
+	position: relative;
+	padding-top: 50px;
+	padding-top: 20px;
+}
+
+/* img */
+
+img {
+	vertical-align: bottom;
+}
+
+/* end */
+
+
+/* @group header */
+
+h2 {
+	font-size: 26px;
+	line-height: 28px;
+	padding: 10px 0;
+}
+
+h2 a {
+	color: #fff;
+	text-shadow: rgba(170, 178, 192, .75) 0 0 20px;
+	text-decoration: none;
+}
+
+h2 a:hover,
+h2 a:focus {
+	color: #fff;
+	text-shadow: rgba(170, 178, 192, 1) 0 0 20px;
+}
+
+h2 a:active {
+	text-shadow: rgba(14, 32, 59, .75) 0 0 20px;
+}
+
+h3 {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 18px;
+}
+
+h4 {
+	margin-bottom: 18px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+h4 a {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+	text-decoration: none;
+}
+
+h4 a:hover,
+h4 a:focus {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+}
+
+h4 a:active {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, 1);
+}
+
+/* end */
+
+/* anchor */
+
+a {
+	/*	color of the title and all links */
+	color: rgb(177, 148, 108); 
+	color: rgba(177, 148, 108, .75);
+	text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+	/*	color of the title and all links on hover, focus */
+	color: rgb(177, 148, 108); 
+	color: rgba(177, 148, 108, 1);
+}
+
+a:active {
+	/*	color of the title and links when active */
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, 1);
+}
+/* end */
+
+
+/* paragraph */
+p {
+	margin-bottom: 18px;
+}
+/* end */
+
+
+/* list */
+ol,
+ul {
+	margin-bottom: 18px;
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .5);
+}
+
+ol li,
+ul li {
+	margin-bottom: 9px;
+}
+
+ol li {
+	list-style-type: decimal;
+}
+
+ul li {
+	list-style-type: disc;
+}
+/* end */
+
+
+/* day */
+#day {
+	position: absolute;
+	top: 168px;
+	left: 0;
+	right: 0;
+	font-weight: bold;
+	color: rgb(170, 178, 192); 
+	color: rgba(170, 178, 192, .75);
+	line-height: 40px;
+	z-index: 5;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	overflow: hidden;
+	display: none;
+}
+
+#day h3 {
+	width: 60px;
+	font-size: 14px;
+	padding: 0 0 0 10px;
+	margin-bottom: 10px;
+	display: none;
+}
+
+#day li {
+	color: rgb(170, 178, 192); 
+	color: rgba(170, 178, 192, .75);
+	margin: 0;
+	list-style: none;
+	font-size: 18px;
+	width: 80px;
+}
+
+#day a {
+	display: block;
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+	text-decoration: none;
+	padding: 0 900px 0 10px;
+	width: 60px;
+}
+
+#day a:hover,
+#day a:focus {
+	background-color: rgb(14, 32, 59); 
+	background-color: rgba(14, 32, 59, .1);
+}
+
+#day li.current a {
+	background-color: rgb(0, 0, 0); 
+	background-color: rgba(0, 0, 0, .45);
+}
+/* end day */
+
+
+/* year */
+#year {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	left: 10px;
+	font-weight: bold;
+	text-align: center;
+	color: rgb(170, 178, 192); 
+	color: rgba(170, 178, 192, .75);
+	line-height: 30px;
+	z-index: 5;
+	
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	display: none;
+}
+
+#year h3 {
+	font-size: 14px;
+	width: 80px;
+	padding: 20px 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+#year ul {
+	width: 5000px;
+}
+
+#year ul li.pre {
+	display: none;
+}
+
+#year ul li {
+	float: left;
+	width: 100px;
+	list-style: none;
+	padding: 20px 0;
+	color: rgb(170, 178, 192); 
+	color: rgba(170, 178, 192, .75);
+}
+
+#year ul li a {
+	display: block;
+	width: 100px;
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+	text-decoration: none;
+	position: absolute;
+	padding: 20px 0;
+	top: 0;
+	z-index: 5;
+	bottom: 0;
+}
+
+#year ul li.current a {
+	background-color: rgb(0, 0, 0); 
+	background-color: rgba(0, 0, 0, .25);
+	color: rgb(177, 148, 108); 
+	color: rgba(177, 148, 108, .75);
+}
+
+#year ul li.current a:hover,
+#year ul li.current a:focus {
+	color: rgb(177, 148, 108); 
+	color: rgba(177, 148, 108, 1);
+}
+
+#year a:hover,
+#year a:focus {
+	background-color: rgb(0, 0, 0); 
+	background-color: rgba(0, 0, 0, .1);
+}
+
+#year a:active,
+#year ul li.current a:active {
+	background-color: rgb(0, 0, 0); 
+	background-color: rgba(0, 0, 0, .35);
+}
+/* end year */
+
+
+/* footer */
+#footer {
+	clear: both;
+	padding: 20px 0 25px 130px;
+	padding: 20px 10px 25px 20px;
+	font-size: 12px; 
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0;
+	z-index: 25;
+	position: relative;
+}
+
+#footer strong {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+}
+
+#footer a {
+	text-decoration: none;
+}
+
+#footer li {
+	display: inline;
+	/*white-space: nowrap;*/
+}
+/* end footer */
+
+
+/* navigation */
+#navigation {
+	/* navigation background color */
+	background-color: rgb(0, 0, 0); 
+	background-color: rgba(0, 0, 0, .5);
+	z-index: 50;
+	position: relative;
+	height: 55px;
+	height: 45px;
+	padding: 20px 0;
+	padding: 20px 0 0 0;
+	margin: -85px 0 0;
+	overflow: hidden;
+}
+/* end navigation */
+
+/* @group h1 */
+h1 {
+	line-height: 160px;
+	font-size: 210px; 
+	font-size: 5.5em; 
+	text-transform: uppercase;
+	font-weight: bold;
+	height: 120px;
+	overflow: hidden;
+	padding-left: 20px;
+	z-index: 25;
+	position: relative;
+	left:50px;
+}
+
+h1 a {
+	text-decoration: none;
+	letter-spacing: -15px;
+	letter-spacing: -9px;
+	display: block;
+	position: relative;
+	white-space: nowrap;
+	margin-top: -45px;
+	-webkit-transition: color 0.25s linear;
+	-moz-transition: color 0.25s linear;
+	transition: color 0.25s linear;
+}
+
+h1 a:active {
+	color: rgb(177, 148, 108); 
+	color: rgba(177, 148, 108, .9);
+}
+
+/* subtitle */
+h1 a em {
+	font-size: 16px;
+	line-height: 75px; 
+	text-transform: lowercase; 
+	font-style: normal;
+	color: rgb(0, 0, 0); 
+	color: rgba(0, 0, 0, .5);
+	letter-spacing: 0;
+	position: absolute;
+	width: 90%;
+	top: 50px;
+	left: 325px;
+	-webkit-transition: color 0.25s linear;
+	-moz-transition: color 0.25s linear;
+	transition: color 0.25s linear;
+	display: none;
+}
+
+h1 a:hover em,
+h1 a:focus em {
+	color: rgb(0, 0, 0); 
+	color: rgba(0, 0, 0, .75);
+}
+
+h1 a:active em {
+	color: rgb(0, 0, 0); 
+	color: rgba(0, 0, 0, .5);
+}
+/* end subtitle */
+/* end h1 */
+
+
+/* content */
+#content {
+	background-color: rgb(0, 0, 0); 
+	background-color: rgba(0, 0, 0, .5);
+	/* no longer need
+	background-color: rgb(14, 32, 59); 
+	background-color: rgba(14, 32, 59, .5);
+	*/
+	min-height: 980px;
+	margin-left: 70px;
+	margin-left: 10px;
+	/*float: left;*/
+	z-index: 55;
+	position: relative;
+	margin-top: 5px;
+}
+
+.home #content {
+	margin-top: 0;
+}
+
+/* end content */
+
+/* white box frame around edges */
+#wrap  {
+	margin-left: -10px;
+}
+
+#unnecessary {
+	margin: 0;
+	display: none;
+}
+
+#unnecessary li {
+	position: fixed;
+	list-style: none;
+	margin: 0;
+	background-color: rgb(255, 255, 255); 
+	background-color: rgba(255, 255, 255, .75);
+	z-index: 75;
+}
+
+li#top {
+	height: 10px;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+li#right {
+	width: 10px;
+	bottom: 10px;
+	right: 0;
+	top: 10px;
+}
+
+li#bottom {
+	height: 10px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+li#left {
+	width: 10px;
+	bottom: 10px;
+	left: 0;
+	top: 10px;
+}
+/* end */
+
+
+/* about */
+#about {
+	padding: 1px 20px 1px;
+	background-color: rgb(177, 148, 108); 
+	background-color: rgba(177, 148, 108, .75);
+	color: rgb(228, 229, 235); 
+	color: rgba(228, 229, 235, .75);
+	clear: left;
+	margin: 0 20px 30px 10px;
+	word-wrap:break-word;
+}
+
+#about h2 {
+	display: block;
+	font-size: 18px;
+	color: rgb(170, 178, 192); 
+	color: rgba(170, 178, 192, .75);
+}
+
+#about strong {
+	color: rgb(255, 255, 255); 
+	color: rgba(255, 255, 255, .75);
+}
+
+#about a {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+	text-decoration: none;
+}
+
+#about a:hover,
+#about a:focus {
+	text-decoration: underline;
+}
+
+#about a:active {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, 1);
+}
+/* end about */
+
+
+/* author */
+.author h2 {
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
+/* end author */
+
+
+/* article */
+#comments,
+#article {
+	background-color: rgb(255, 255, 255); 
+	background-color: rgba(255, 255, 255, .75);
+	padding: 16px;
+	padding-bottom: 0;
+	clear: both;
+}
+
+#content.article #article,
+#content.comments #comments {
+	display: block;
+	
+}
+
+.article #content {
+	padding: 0 30px 30px 10px;
+	padding: 0 10px 30px 10px;
+}
+
+#article h3 {
+	background-color: rgb(255, 255, 255); 
+	background-color: rgba(255, 255, 255, .75);
+	padding: 18px 16px;
+	margin: 36px -16px 18px;
+}
+/* end article */
+
+
+
+/* related */
+#related {
+	padding: 20px 20px 1px;
+	clear: both;
+	background-color: rgb(170, 178, 192); 
+	background-color: rgba(170, 178, 192, .75);
+}
+
+#related ul {
+	border-top: 2px solid rgba(170, 178, 192, .75);
+	margin-bottom: 15px;
+}
+
+#related ul li {
+	color: rgb(255, 255, 255); 
+	color: rgba(255, 255, 255, .75);
+	font-size: 12px;
+	font-weight: bold;
+	padding: 10px 0;
+	border-bottom: 2px solid rgba(170, 178, 192, .75);
+	list-style: none;
+	margin: 0;
+}
+
+#related ul li h4 {
+	margin: 0;
+	text-transform: none;
+}
+
+#related ul li h4 a {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 14px;
+	display: block;
+}
+
+#related ul li h4 a:hover,
+#related ul li h4 a:focus {
+	text-decoration: underline;
+}
+
+#related ul li h4 a:active {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, 1);
+}
+
+#related ul li p {
+	margin: 5px 0 0 0;
+}
+
+#related ul li p a {
+	color: rgb(255, 255, 255); 
+	color: rgba(255, 255, 255, .75);
+}
+
+#related ul li p a:hover,
+#related ul li p a:focus {
+	color: rgb(255, 255, 255); 
+	color: rgba(255, 255, 255, 1);
+}
+
+#related ul li p a:active {
+	text-shadow: rgba(228, 229, 235, .75) 0 0 5px;
+}
+
+#related h3 {
+	color: rgb(177, 148, 108); 
+	color: rgba(177, 148, 108, .75);
+}
+/* end related */
+
+
+/* @group author */
+#author {
+	padding: 80px 20px 1px;
+	background-color: rgb(177, 148, 108); 
+	background-color: rgba(177, 148, 108, .75);
+	color: rgb(228, 229, 235); 
+	color: rgba(228, 229, 235, .75);
+	margin-top: 120px;
+	margin-bottom: 20px;
+	position: relative;
+	clear: right;
+	float: left;
+}
+
+#author strong {
+	color: rgb(255, 255, 255); 
+	color: rgba(255, 255, 255, .75);
+}
+
+#author a {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+	text-decoration: none;
+}
+
+#author a:hover,
+#author a:focus {
+	text-decoration: underline;
+}
+
+#author a:active {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, 1);
+}
+
+#author h3 {
+	color: rgb(170, 178, 192); 
+	color: rgba(170, 178, 192, .75);
+}
+
+#author img {
+	position: absolute;
+	top: -100px;
+	left: 10px;
+	opacity: .9;
+	-webkit-transition: opacity 0.1s linear;
+	-moz-transition: opacity 0.1s linear;
+	transition: opacity 0.1s linear;
+}
+
+#author img:hover {
+	opacity: 1;
+}
+
+#author p.more {
+	margin: 10px -10px;
+}
+
+#author p.more a {
+	display: block;
+	padding: 5px 10px;
+	background-color: rgb(14, 32, 59); 
+	background-color: rgba(14, 32, 59, .5);
+	color: rgb(255, 255, 255); 
+	color: rgba(255, 255, 255, .75);
+	font-weight: bold;
+	text-align: center;
+}
+
+#author p.more a:hover,
+#author p.more a:focus {
+	color: #fff;
+}
+
+#author p.more a:active {
+	padding: 6px 10px 4px;
+	background-color: rgb(14, 32, 59); 
+	background-color: rgba(14, 32, 59, .75);
+}
+/* end author */
+
+
+/* @group meta */
+.meta {
+	position: relative;
+}
+
+.meta h2 {
+	padding-left: 95px;
+	margin-top: -5px;
+	margin-bottom: 5px;
+	min-height: 39px;
+}
+
+.meta h2 strong {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 60px;
+	padding: 5px 10px 10px;
+	height: 65px;
+	text-align: center;
+	color: rgb(228, 229, 235); 
+	color: rgba(228, 229, 235, .75);
+	background-color: rgb(0, 0, 0); 
+	background-color: rgba(0, 0, 0, .25);
+	-webkit-box-shadow: 0 0 10px rgba(14, 32, 59, .5);
+	-moz-box-shadow: 0 0 10px rgba(14, 32, 59, .5);
+	box-shadow: 0 0 10px rgba(14, 32, 59, .5);
+	
+	font-size: 36px;
+	line-height: 40px;
+}
+
+.meta h2 strong em {
+	font-size: 10px;
+	display: block;
+	font-style: normal;
+	background-color: rgb(14, 32, 59); 
+	background-color: rgba(14, 32, 59, .5);
+	line-height: 20px;
+	margin-top: 5px;
+}
+
+.meta p {
+	margin: 0 40px 0 0;
+	margin: 0 0 0 96px;
+	line-height: 40px;
+	color: rgb(170, 178, 192); 
+	color: rgba(170, 178, 192, .75);
+	font-weight: bold;
+}
+
+.meta p a {
+	color: rgb(228, 229, 235); 
+	color: rgba(228, 229, 235, .75);
+}
+
+.meta p a:hover,
+.meta p a:focus {
+	color: rgb(228, 229, 235); 
+	color: rgba(228, 229, 235, 1);
+}
+
+.meta ul {
+	height: 40px;
+	float: left;
+	margin: 0 0 0 95px;
+	line-height: 38px;
+	display: none;
+}
+
+.meta ul li {
+	float: left;
+	margin: 0 10px 0 0;
+	list-style: none;
+}
+
+.meta ul li a {
+	background-color: rgb(170, 178, 192); 
+	background-color: rgba(170, 178, 192, .75);
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, .75);
+	float: left;
+	padding: 1px 20px;
+	font-weight: bold; 
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1px;
+}
+
+.meta ul li a:hover,
+.meta ul li a:focus {
+	color: rgb(14, 32, 59); 
+	color: rgba(14, 32, 59, 1);
+}
+
+.meta ul li a:focus strong,
+.meta ul li a:hover strong {
+	background-color: rgb(14, 32, 59); 
+	background-color: rgba(14, 32, 59, 1);
+}
+
+.meta ul li a:active {
+	padding: 2px 20px 0;
+}
+
+.meta ul li a strong {
+	float: right;
+	line-height: 20px;
+	margin-top: 9px;
+	margin-left: 10px;
+	padding: 0 10px;
+	background-color: rgb(14, 32, 59); 
+	background-color: rgba(14, 32, 59, .75);
+	color: rgb(228, 229, 235); 
+	color: rgba(228, 229, 235, .75);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#content.article .meta ul li#goto-article a,
+#content.article .meta ul li#goto-article-alt a{
+	background-color: rgb(255, 255, 255); 
+	background-color: rgba(255, 255, 255, .75);
+	color: rgb(177, 148, 108); 
+	color: rgba(177, 148, 108, .75);
+}
+
+#content.article .meta ul li#goto-article a:hover,
+#content.article .meta ul li#goto-article a:focus,
+#content.article .meta ul li#goto-article-alt a:hover,
+#content.article .meta ul li#goto-article-alt a:focus{
+	color: rgb(177, 148, 108); 
+	color: rgba(177, 148, 108, 1);
+}
+
+
+
+
+
+/* Here we go. */
+/* change css based on width */
+
+/* iphone */
+@media only screen and (max-device-width: 480px) {
+	#unnecessary li {
+		position: absolute;
+	}
+}
+
+/* ipad */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+	#unnecessary li {
+		position: absolute;
+	}
+}
+
+@media screen and (min-width: 480px) {
+	
+	#wrap  {
+		margin-left: 0;
+	}
+
+	#unnecessary {
+		display: block;
+	}
+	
+	h1 {
+		line-height: 176px;
+		font-size: 120px; 
+		height: 130px;
+	}
+
+	h1 a {
+		text-decoration: none;
+		letter-spacing: -11px;
+	}
+	
+	h1 a em {
+		font-size: 26px;
+		line-height: 75px; 
+		width: 95%;
+		top: 30px;
+		display: block;
+	}
+	
+	li#nav-home a,
+	li#nav-home a:active {
+		padding-left: 80px;
+	}
+	body {
+		padding-top: 50px;
+	}
+	
+	#day,
+	#year {
+		display: block;
+	}
+	#content {
+		margin-left: 70px;
+	}
+	
+	#navigation li a {
+		font-size: 18px;
+	}
+	
+	#navigation {
+		height: 55px;
+	}
+	
+	.meta p {
+		margin: 0;
+		float: right;
+	}
+
+	#article,
+	#comments {
+		margin-top: 0;
+	}
+	
+	.article #content {
+		padding: 0 20px 30px 10px;
+	}
+	
+}
+@media screen and (min-width: 600px) {
+	
+	h1 {
+		line-height: 220px;
+		font-size: 159px; 
+		height: 160px;
+	}
+
+	h1 a {
+		text-decoration: none;
+		letter-spacing: -15px;
+	}
+	
+	h1 a em {
+		font-size: 30px;
+		line-height: 75px; 
+		width: 97%;
+		top: 52px;
+		display: block;
+	}
+	
+	#navigation {
+		padding: 10px 0;
+		height: 55px;
+	}
+
+	
+	#year {
+		padding-left: 60px; 
+	}
+	
+	#year h3 {
+		display: block;
+	}
+	
+	#day h3 {
+		display: block;
+	}
+	
+	.meta ul {
+		display: block;
+	}
+	
+	.meta p {
+		margin: 0 40px 0 0;
+	}
+	
+	#article,
+	#comments {
+		padding: 36px 40px 18px;
+		padding-bottom: 0;
+	}
+	
+	#article h3 {
+		padding: 18px 40px;
+		margin: 36px -40px 18px;
+	}
+	
+	#about {
+		margin: 0 40px 30px 10px;
+	}
+	
+	#footer {
+		padding: 20px 0 25px 130px;
+	}
+	#footer li {
+		white-space: nowrap;
+	}
+	
+	#author {
+		margin: 20px 120px 20px 0;
+		padding: 10px 60px 1px 20px;
+	}
+	
+	#author img {
+		right: -120px;
+		top: 10px;
+		left: auto;
+	}
+	
+	#related ul li {
+		padding: 10px 1% 0 0;
+		margin: 0;
+		display: inline-block;
+		width: 48%;
+	}
+	
+	p.image img {
+		margin-left: -10px; 
+		border: 10px solid rgba(255, 255, 255, .75);
+	}
+
+}
+@media screen and (min-width: 768px) {
+
+	h1 {
+		line-height: 232px;
+		font-size: 194px; 
+		height: 160px;
+	}
+
+	h1 a {
+		text-decoration: none;
+		letter-spacing: -15px;
+	}
+	
+	h1 a em {
+		font-size: 34px;
+		line-height: 75px; 
+		width: 97%;
+		top: 50px;
+		display: block;
+	}
+	
+	h2 {
+		font-size: 36px;
+		line-height: 40px;
+		padding: 10px 0;
+	}
+
+	#navigation {
+		padding: 20px 0;
+		height: 55px;
+	}
+
+	li#nav-home a,
+	li#nav-home a:active {
+		padding-left: 100px;
+	}
+
+	#year ul li.pre4,
+	#year ul li.pre5,
+	#year ul li.pre6,
+	#year ul li.pre7 {
+		display: block;
+	}
+	
+	#day {
+		top: 186px;
+	}
+	
+}
+@media screen and (min-width: 980px) {
+	#wrap {
+		width: 970px;
+	}
+	#content {
+		width: 900px;
+		float: left;
+		margin-top: 0;
+	}
+	
+	#about {
+		width: 200px;
+		margin-bottom: 20px;
+		margin-right: 30px;
+		float: right;
+		clear: none;
+	}
+	
+	#year ul li.pre {
+		display: block;
+	}
+	
+	h1 {
+		line-height: 250px;
+		font-size: 210px; 
+		height: 170px;
+		padding-left: 75px;
+	}
+
+	h1 a {
+		letter-spacing: -15px;
+		margin-top: -45px;
+	}
+	
+	h1 a em {
+		font-size: 36px;
+		line-height: 75px; 
+		letter-spacing: 0;
+		position: absolute;
+		width: 880px;
+		top: 55px;
+	}
+	
+	#day {
+		top: 190px;
+	}
+	
+	.article #content {
+		width: 860px;
+		padding: 0 30px 30px 10px;
+	}
+	
+	#author {
+		width: 180px;
+		padding: 80px 20px 1px;
+		margin-top: 100px;
+		margin-bottom: 20px;
+		position: relative;
+		clear: none;
+		float: none;
+	}
+	
+	#author img {
+		top: -100px;
+		left: 10px;
+		right: auto;	
+	}
+	
+	#related {
+		width: 180px;
+		padding: 20px 20px 1px;
+		clear: none;
+	}
+	
+	#related ul li {
+		width: 180px;
+		padding: 10px 0;
+		margin: 0;
+		display: block;
+	}
+	
+	#article {
+		padding: 36px 40px 18px;
+		padding-bottom: 0;
+		width: 540px;
+		float: right;
+		margin-top: 0;
+	}
+	
+	.meta {
+		float: right;
+		width: 620px;
+		position: relative;
+	}
+	
+	.meta h2 {
+		padding-left: 40px;
+	}
+	
+	.meta ul {
+		margin: 0 0 0 40px;
+	}
+	
+	.meta h2 strong {
+		left: -50px;
+		top: 0;
+	}
+	
+	.author h2 {
+		width: 540px;
+		float: right;
+		margin-bottom: 10px;
+	}
+	
+}

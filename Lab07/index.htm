@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="gecko win js">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery Cycle and CSS</title>
+    <link rel="stylesheet" href="styles/styles.css" media="screen" />
+    <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0" />
+
+	<!-- These script includes need to be in this order -->
+	<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+
+<!-- /////////////////////////// -->
+<!-- ADD JavaScript code / jQuery -->
+<!-- /////////////////////////// -->
+	<script type="text/javascript">
+	
+		$(document).ready(function(e) {
+            $("#cycleScrollLeft").cycle({
+				fx: 'scrollLeft', 
+    			delay: -3500,  
+    			easing:  'easeInOutBack',
+				random: 1
+			});//end cycleScrollLeft
+			
+			$("#cycleTitleFade").cycle({
+				fx: 'fade',
+				delay: 1000,
+				speed: 2000
+			});// end cycleTitleFade
+			
+			function displayNone() {
+				//do not display any content
+				$("#aboutTab").css("display","none");
+				$("#aristotleTab").css("display","none");
+				$("#lockeTab").css("display","none");
+				$("#platoTab").css("display","none");
+				$("#socratesTab").css("display","none");
+				
+				$("#aboutLink").parent().removeClass("current");
+				$("#aristotleLink").parent().removeClass("current");
+				$("#lockeLink").parent().removeClass("current");
+				$("#platoLink").parent().removeClass("current");
+				$("#socratesLink").parent().removeClass("current");
+				
+				var iframe1 = document.getElementById("platoVid");
+				iframe1.src = iframe1.src;
+				
+				var iframe2 = document.getElementById("aristotleVid");
+				iframe2.src = iframe2.src;
+				
+				var iframe3 = document.getElementById("socratesVid");
+				iframe3.src = iframe3.src;
+				
+				var iframe4 = document.getElementById("lockeVid");
+				iframe4.src = iframe4.src;
+			}//end displayNone()
+			
+			$("#aboutLink").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#aboutTab").css("display", "block");
+				$("#aboutLink").parent().addClass("current");
+				$("#articleHeading").html("About");
+			});
+			$("#platoLink").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#platoTab").css("display", "block");
+				$("#platoLink").parent().addClass("current");
+				$("#articleHeading").html("Plato");
+			});
+			$("#socratesLink").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#socratesTab").css("display", "block");
+				$("#socratesLink").parent().addClass("current");
+				$("#articleHeading").html("Socrates");
+			});
+			$("#aristotleLink").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#aristotleTab").css("display", "block");
+				$("#aristotleLink").parent().addClass("current");
+				$("#articleHeading").html("Aristotle");
+			});
+			$("#lockeLink").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#lockeTab").css("display", "block");
+				$("#lockeLink").parent().addClass("current");
+				$("#articleHeading").html("Locke");
+			});
+			
+			//contact fixed bar
+			var isShowing = 1;
+			$("#contact").addClass("rotate");
+			$(window).scroll(function(e){
+				$("#contact").addClass("fixed");
+			});
+			$("#contact").click(function(e){
+				e.preventDefault();
+				if(isShowing % 2 == 1) {
+					$("#contact").animate({
+						left:"+=400"
+					}, 700);
+					$("#contactForm").animate({
+						left:"+=400"
+					}, 700);
+					$("#contact").addClass("fixed");
+					$("#contactForm").addClass("fixed");
+					
+					$("#contact").css("background-color","rgba(177, 148, 108, 0.95)");
+					isShowing ++;	
+				}
+				else {
+					$("#contact").animate({
+						left:"-=400"
+					}, 700);
+					$("#contactForm").animate({
+						left:"-=400"
+					}, 700);
+					$("#contact").css("background-color","rgba(177, 148, 108, 0.75)");
+					isShowing ++;
+				}
+			});//click contact
+			
+			$("#contactClose").click(function(e){
+				e.preventDefault();
+				$("#contact").animate({
+						left:"-=400"
+					}, 700);
+					$("#contactForm").animate({
+						left:"-=400"
+					}, 700);
+					$("#contact").css("background-color","rgba(177, 148, 108, 0.75)");
+					isShowing ++;
+			});
+        });//end of ready function
+		function openIt() {
+				document.getElementById("contact").click();	
+		}
+			
+			
+	</script>
+<!-- /////////////////////////// -->
+<!-- END JavaScript code / jQuery -->
+<!-- /////////////////////////// -->
+
+</head> 
+
+
+<body class="article js">
+
+<!-- /////////////////////////// -->
+<!-- ADD contact me fixed flyout div -->
+<!-- /////////////////////////// -->
+	<div id="contact">
+    	<span>Contact me</span>    
+    </div>
+    <div id="contactForm">
+    	<div id="contactClose" style="position:relative; text-align:center; width:15px; left:375px; top:5px; border:1px solid #dddddd; padding:1px; color:#dddddd; cursor:pointer">
+        X
+        </div>
+        <div id="contactAddress" style="position:relative; width:325px; left:45px; top:5px; padding:1px; color:#dddddd;">
+        	Sijin Wang <br />&nbsp;<br />
+            wang2283@purdue.edu <br />&nbsp;<br />
+            Purdue University <br />
+            West Lafayette, IN 47906
+        </div>
+    </div>
+<!-- /////////////////////////// -->
+<!-- END contact me fixed flyout div -->
+<!-- /////////////////////////// -->
+
+<!-- across top -->
+	<div id="year">
+	<h3>&nbsp;</h3>
+	<ul>
+    	<!-- push navigation over -->
+		<li class="pre pre1">&nbsp;</li>
+		<li class="pre pre2">&nbsp;</li>
+
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li><a href="#" id="platoLink">Plato</a></li>
+        <li><a href="#" id="socratesLink">Socrates</a></li>
+        <li><a href="#" id="aristotleLink">Aristotle</a></li>
+        <li><a href="#" id="lockeLink">Locke</a></li>
+        <li class="current"><a href="#" id="aboutLink">About</a></li>
+
+	</ul>
+</div>
+<!-- end across top -->
+
+<!-- left side -->
+<div id="day">
+	<h3>&nbsp;</h3>
+	<ul>
+    	<li>&nbsp;</li>
+    	<li>&nbsp;</li>
+    	<li>&nbsp;</li>
+    	<li>&nbsp;</li>
+    	<li>&nbsp;</li>
+    	<li>&nbsp;</li>
+    	<li>&nbsp;</li>
+    	<li>&nbsp;</li>
+		<li class="current"><a>&nbsp;</a></li>
+	</ul>
+</div>
+<!-- end left side -->
+
+<!-- wrapper -->
+<div id="wrap">
+    <!-- large title and subtitle -->
+<!-- ///////////////////////////////////////////////////// -->
+<!-- ADD jQuery Cycle for names that change at top of page -->
+<!-- ///////////////////////////////////////////////////// -->
+	<h1>
+    	<a href="#">Virtue
+        	<em id="cycleTitleFade">
+            	<span>Aristotle</span>
+                <span>Plato</span>
+                <span>Socrates</span>
+                <span>Locke</span>
+            </em>
+        </a>
+    </h1>
+<!-- ///////////////////////////////////////////////////// -->
+<!-- END jQuery Cycle for names that change at top of page -->
+<!-- ///////////////////////////////////////////////////// -->
+        
+    <!-- begin navigation -->
+    <ul id="navigation">
+    </ul>
+    <!-- end navigation -->
+	
+    <div class="article" id="content">
+        <div class="meta">
+            <h2><strong><img style="margin-left:-10px; margin-top:-5px;" src="img/logo3.gif" width="78" height="80" alt="" title="" /></strong> 
+                    <a href="#" rel="bookmark">Philosophy of Virtue</a></h2>
+                <!-- ///////////////////////////////////////////////////// -->
+                <!-- ADD change # to javascript call -->
+                <!-- ///////////////////////////////////////////////////// -->
+            <p>by <a href="javascript:openIt();">Sijin Wang</a></p>
+            <ul>
+                <li id="goto-article"><a href="#article" id="articleHeading">About</a></li>
+            </ul>
+        </div><!-- meta -->
+    
+    
+    
+<!-- begin main body, first tab -->
+    <div id="article">
+        
+        <!-- About -->
+        <div id="aboutTab">
+            <p>This site is devoted to the philosophical issue of virtue as presented by Plato, Socrates, Aristotle, and Locke.</p>
+        
+            <h3>What do I consider virtue to be?</h3>
+            <p>It is something that I normally do not stop to think about, but through the readings have come to a better and 
+            possibly deeper understanding of the term. It is interesting looking back at the Socrates and Meno discussion; 
+            Meno described virtue as a swarm of possibilities, with each person having their own virtue. In a sense, this is 
+            true. Each person may perceive virtue to be slightly different from another and may act slightly differently from 
+            other people, while still following the underlying guidelines of what virtue is. Socrates believed though, that virtue 
+            had one common underlying principle that ran through everybody, or at least through anybody who had virtue. Socrates 
+            believed that it should be possible to define a term without having conditions that make the definition different under 
+            varying circumstances.  </p>
+
+            <h3>Does virtue come from knowledge?</h3>
+            <p>In Meno, Socrates reasoned that virtue could not be taught, and therefore was not learned. Before reading Protagoras, 
+            I saw this idea as being fundamentally flawed. For virtue to simply be bestowed upon certain individuals, as though divinely 
+            given, and for only those people to be able to act in a good, virtuous way was beyond comprehension. I felt that it was well 
+            within the ability of anybody, well, anybody of sound mind, to act in a virtuous way. The ability to be good, right, and just, 
+            and use those in a given situation is something that I feel people learn as they go through life. While it may be taught to 
+            some degree in the classroom, I think virtue is more often taught outside the classroom, through the things you see your 
+            parents, relatives, and others around you doing as you are growing up. I would argue that yes, virtue is based on knowledge. 
+            Through what a person has learned in life, they have formed an opinion of what it takes to have virtue and act in a virtuous 
+            way. The knowledge that is gained through life experiences contributes to the way a person behaves. Protagoras argued just 
+            that. Protagoras believed that virtue was learned and could be taught. While each person may be inherently gifted with some 
+            sense of virtue, through natural love of one’s parents, or the natural actions of a baby, as they progress through life, they 
+            learn right from wrong, and are constantly guided in the direction of right. Protagoras noted especially that through punishment, 
+            people are led to the behavior that others would consider virtuous.</p>
+
+            <h3>What do I think virtue is?</h3>
+            <p>I think virtue is, simply put, doing good. One of the earliest lessons I was taught was to “do unto others as you wish done 
+            unto you,” often called the golden rule. The meaning of the saying is easy enough to grasp; it tells us that if we want good 
+            things to happen to us or to be done for us, that we should act in a good way towards others or do good things for others. 
+            Through exercising these moral standards, others will see the good will and some of those will be touched by it and follow in 
+            those footsteps.</p>
+
+        </div>
+        <!-- end About -->
+        
+        <!-- Plato -->
+        <div id="platoTab" style="display:none;">
+                <!-- ///////////////////////////////////////////////////// -->
+                <!-- ADD embed video from YouTube -->
+                <p>
+                	<iframe id="platoVid" width="480" height="350" src="https://www.youtube.com/embed/WgPJUTltITk" frameborder="0" allowfullscreen></iframe>
+                </p>
+                <!-- ///////////////////////////////////////////////////// -->
+            <h3>Plato's view of Virtue</h3>
+            <p>In Plato’s Republic, virtue is the ideal that people would have a soul that is true and just. A virtuous person is one that has continually proven 
+            himself/herself to be a good person, who steers clear of wrongdoing, who makes the correct moral and ethical decisions.</p>
+            <h3>About the video</h3>
+            <p>Video embedded from YouTube from: 
+               <br/><a href="http://www.youtube.com/watch?v=WgPJUTltITk" target="_blank">http://www.youtube.com/watch?v=WgPJUTltITk</a></p>
+        </div>
+        <!-- end Plato -->
+        
+        <!-- Socrates -->
+        <div id="socratesTab" style="display:none;">
+                <!-- ///////////////////////////////////////////////////// -->
+                <!-- ADD embed video from YouTube -->
+                <p>
+                	<iframe id="socratesVid" width="480" height="350" src="https://www.youtube.com/embed/k2KzymrmNa0" frameborder="0" allowfullscreen></iframe>
+                </p>
+                <!-- ///////////////////////////////////////////////////// -->
+            <h3>Socrates on Virtue</h3>
+            <p>Socrates was bothered by Meno’s description of virtue because he offered many different definitions, almost as though Meno did 
+            not know and was grasping for a definition. Granted, he was recalling what Gorgias had defined virtue as rather than defining it 
+            himself. The idea that virtue could have so many different meanings depending on who it was applied to bothered Socrates. Socrates 
+            was looking for a common definition, one that could be applied to anybody in any given 
+            situation. Socrates believed that it should be possible to define a term without having conditions that make the definition different 
+            under varying circumstances. Socrates then set out to systematically and logically address how virtue comes to be, and how it does not 
+            come to be. In the end, Socrates rationalizes that &quot;virtue comes to be present by divine apportionment in those to whom it comes.&quot; It 
+            is the will of somebody to do things that are true, right, and just. </p>
+            <h3>About the video</h3>
+            <p>Video embedded from YouTube from: 
+               <br/><a href="http://www.youtube.com/watch?v=k2KzymrmNa0" target="_blank">http://www.youtube.com/watch?v=k2KzymrmNa0</a></p>
+        </div>
+        <!-- end Socrates -->
+        
+        <!-- Aristotle -->
+        <div id="aristotleTab" style="display:none;">
+                <!-- ///////////////////////////////////////////////////// -->
+                <!-- ADD embed video from YouTube -->
+                <p>
+                	<iframe id="aristotleVid" width="480" height="350" src="https://www.youtube.com/embed/BeJJpbDrVRM" frameborder="0" allowfullscreen></iframe>
+                </p>
+                <!-- ///////////////////////////////////////////////////// -->
+            <h3>Aristotle on Virtue</h3>
+            <p>Happiness is seen as a final end, “final in an unqualified sense” as Cahn states (p. 77). 
+            Happiness seems to be one of the defining ends that everybody seeks 
+            through other means, but happiness is never used as a means to some other end (p. 77). 
+            In order to achieve true happiness, a person performs activities “of the soul, 
+            in conformity with excellence or virtue” (p. 77). In other words, a person who does things 
+            for the highest good, rather than for the sake of simply doing, will achieve 
+            happiness.  When a person does things for the highest good, they are praised for doing so, 
+            and those things for which they are praised are generally considered to be 
+            virtues (p. 78).</p>
+            <h3>About the video</h3>
+            <p>Video embedded from YouTube from: 
+               <br/><a href="http://www.youtube.com/watch?v=HTCS5-SAVIE" target="_blank">http://www.youtube.com/watch?v=HTCS5-SAVIE</a></p>
+        </div>
+        <!-- end Aristotle -->
+        
+        <!-- Locke -->
+        <div id="lockeTab" style="display:none;">
+                <!-- ///////////////////////////////////////////////////// -->
+                <!-- ADD embed video from YouTube -->
+                <p>
+                	<iframe id="lockeVid" width="480" height="350" src="https://www.youtube.com/embed/StBlNYX7HBU" frameborder="0" allowfullscreen></iframe>
+                </p>
+                <!-- ///////////////////////////////////////////////////// -->
+            <h3>Locke on Virtue</h3>
+            <p>Locke has some insightful philosophy concerning moral education and virtue. The 
+            most important principle that stuck out to me was developing character as opposed to focusing 
+            solely on intellect. This is the heart of moral education, to instill a sense of character in a child that becomes admirable. </p>
+            <p>When correcting a student, Locke stated that they should be corrected gently 
+            so that the student/child does not become opposed to learning what you desire for them 
+            to learn. In correcting them gently, you once again instill that sense of character, 
+            that through repeated practice, the child will (hopefully) eventually teach others 
+            in the same manner. To coincide with this, children should be praised when they do something desirable.</p>
+            <p>I would relate this back to Aristotle's writings on ethics. Aristotle wrote about 
+            happiness and achieving it. A person who does things for the highest good, rather 
+            than for the sake of simply doing, will achieve happiness. When a person does things 
+            for the highest good, they are praised for doing so. It stems to reason that virtue 
+            is formed and reinforced by good habits. Continually performing good habits, or performing 
+            good deeds, or doing things for the highest good, will reinforce the virtue 
+            within that person (p. 79). This is very similar to Locke's statements of reinforcing through praise and practice. </p>
+            <p>As Locke believed, I too believe that children should be handled with calmness and 
+            with encouraging words. Children have so much to learn. There are so many things 
+            that, as a parent, I try to shield them from, because at two and four, they just don’t 
+            need to know about all the badness in the world – they’ve got the rest of their 
+            lives for that. </p>
+            <h3>About the video</h3>
+            <p>Video embedded from YouTube from: 
+               <br/><a href="http://www.youtube.com/watch?v=StBlNYX7HBU" target="_blank">http://www.youtube.com/watch?v=StBlNYX7HBU</a></p>
+        </div>
+        <!-- end Locke -->
+        
+        
+    </div><!-- end div id=article -->
+<!-- end main body, first tab -->
+            
+            
+<!-- begin about section -->
+        <div id="author" class="vcard">
+            <h3>About Virtue</h3>
+<!-- ///////////////////////////////////////////////////// -->
+<!-- ADD jQuery Cycle for images that change on side of page -->
+<!-- ///////////////////////////////////////////////////// -->
+			<p id="cycleScrollLeft" style="margin-top:-218px;">
+            	<img src="img/plato.jpg" width="160" height="160"/>
+                <img src="img/socrates.jpg" width="160" height="160"/>
+                <img src="img/aristotle.jpg" width="160" height="160"/>
+                <img src="img/locke.jpg" width="160" height="160"/>
+            </p>
+            
+
+
+<!-- ///////////////////////////////////////////////////// -->
+<!-- ADD jQuery Cycle for images that change on side of page -->
+<!-- ///////////////////////////////////////////////////// -->
+            <p style="margin-top:65px;">A virtuous person is one that has 
+            continually proven himself/herself to be a good person, who steers 
+            clear of wrongdoing, who makes the correct moral and ethical decisions.</p>
+        </div>
+<!-- end about section -->
+
+
+<!-- begin related section -->
+        <div id="related">
+            <h4>Related Info</h4>	
+            <ul>
+                <li>
+                    <h4>Plato</h4>
+                    <p><a href="http://plato.stanford.edu/entries/plato/" target="_blank">biography</a></p>
+                </li><li>
+                    <h4>Socrates</h4>
+                    <p><a href="http://plato.stanford.edu/entries/socrates/" target="_blank">biography</a></p>
+                </li><li>
+                    <h4>Aristotle</h4>
+                    <p><a href="http://plato.stanford.edu/entries/aristotle/" target="_blank">biography</a></p>
+                </li><li>
+                    <h4>Locke</h4>
+                    <p><a href="http://plato.stanford.edu/entries/locke/" target="_blank">biography</a></p>
+                </li>
+            </ul>
+        </div>
+<!-- end related section -->
+
+
+   	</div><!-- end div id=content -->
+<!-- end content         -->
+
+<!-- footer if wanted -->
+    <ul id="footer">
+    </ul>
+<!-- end footer -->
+
+<!-- white box frame around edges -->
+    <ul id="unnecessary">
+        <li id="top"></li>
+        <li id="right"></li>
+        <li id="bottom"></li>
+        <li id="left"></li>
+    </ul>
+<!-- end white box frame around edges-->
+        
+</div><!-- end div id=wrap -->
+<!-- end wrapper         -->
+
+<script src="js/all.js" type="text/javascript"></script>
+
+</body></html>
+
+<!-- ronald j. glotzbach -->

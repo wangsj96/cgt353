@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Zoom Image</title>
+
+<style type="text/css">
+	body{
+		background-color:#eeeeff;	
+	}
+	div#smallImage{
+		width:350px;
+		height:197px;
+		position:absolute;
+		top:20px;
+		left:20px;
+		border:1px solid black;	
+	}
+	div#largeImage{
+		position:absolute;
+		width:350px;
+		height:302px;
+		left:420px;
+		top:20px;
+		border:1px solid black;
+	}
+	div#thumb1{
+		width:170px;
+		height:96px;
+		position:absolute;
+		top:225px;
+		left:20px;
+		border:1px solid black;	
+	}
+	div#thumb2{
+		width:170px;
+		height:96px;
+		position:absolute;
+		top:225px;
+		left:200px;
+		border:1px solid black;	
+	}
+</style>
+
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+
+</head>
+
+<body>
+
+	<div id="smallImage">
+    </div>
+    
+    <div id="thumb1">
+    </div>
+    
+    <div id="thumb2">
+    </div>
+    
+    <div id="largeImage">
+    </div>
+    
+    
+    <script type="text/javascript">
+		$("document").ready(function(e) {
+            $("#smallImage").html("<img src='zoomImages/thumbs/1.jpg' width='350' height='197' alt='' title='' />");
+			$("#thumb1").html("<img src='zoomImages/thumbs/2.jpg' width='170' height='96' alt='' title='' />");
+			$("#thumb2").html("<img src='zoomImages/thumbs/3.jpg' width='170' height='96' alt='' title='' />");
+			$("#thumb1").css("cursor","pointer");
+			$("#thumb2").css("cursor","pointer");
+			$("#largeImage").css("overflow","hidden");
+			
+			if($("#thumb1").click(function(){
+				var temp = $("#smallImage").html();
+			
+				$("#smallImage").html($("#thumb1").html());
+				/*$("#smallImage img").width(350);
+				$("#smallImage img").height(197);*/
+				$("#smallImage").children().width(350);
+				$("#smallImage").children().height(197);
+			
+				$("#thumb1").html(temp);
+				$("#thumb1").children().width(170);
+				$("#thumb1").children().height(96);
+			}));
+			
+			if($("#thumb2").click(function(){
+				var temp = $("#smallImage").html();
+			
+				$("#smallImage").html($("#thumb2").html());
+				/*$("#smallImage img").width(350);
+				$("#smallImage img").height(197);*/
+				$("#smallImage").children().width(350);
+				$("#smallImage").children().height(197);
+			
+				$("#thumb2").html(temp);
+				$("#thumb2").children().width(170);
+				$("#thumb2").children().height(96);
+			}));
+			
+			$("#smallImage").hover(function(){
+				//hover over smallImage
+				$("#largeImage").html($("#smallImage").html());
+				$("#largeImage").children().css("position","absolute");
+				$("#largeImage").children().css("left","0");
+				$("#largeImage").children().css("top","0");
+				
+				var imgLoc = $("#largeImage").children().attr("src");
+				var slashLoc = imgLoc.lastIndexOf("/");
+				var imgName = imgLoc.substring(slashLoc + 1);
+				
+				$("#largeImage").children().width(1600);
+				$("#largeImage").children().height(900);
+				$("#largeImage").children().attr("src","zoomImages/"+imgName);
+				
+			}, function(){
+				//hover out from smallImage
+				$("#largeImage").html("");
+			});
+			
+			$("#smallImage").mousemove(function(event){
+				xLoc = ((event.pageX - 20) * 1600) / 350;
+				yLoc = ((event.pageY - 20) * 900) / 197;
+				
+				if(xLoc < 185){
+					$("#largeImage").children().css("left","0");
+				} 
+				else if(xLoc > 1415) {
+					$("#largeImage").children().css("left",(-1)*(1250));
+				}
+				else if(xLoc > 185){
+					$("#largeImage").children().css("left",(-1)*(xLoc - 175));
+				}
+				
+				if(yLoc < 155){
+					$("#largeImage").children().css("top","0");
+				} 
+				else if(yLoc > 750) {
+					$("#largeImage").children().css("top",(-1)*(598));
+				}
+				else if(yLoc > 155){
+					$("#largeImage").children().css("top",(-1)*(yLoc - 151));
+				}
+			});
+        });//end of ready function
+	</script>
+</body>
+</html>

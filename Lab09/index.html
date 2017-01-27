@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Upload Files</title>
+	<link rel="stylesheet" type="text/css" href="default.css" /> <!-- this css goes with the template -->
+
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+	<style type="text/css">
+		#outerBox{
+			width:93%;
+			height:93%;
+			z-index:900;
+			background-color:rgb(50,50,50);
+			background-color:rgba(50,50,50,0.75);
+		}
+		#UploadBox{
+			width:540px;
+			height:425px;
+			z-index:1000;
+			border:1px solid #dddddd;
+			background-color:rgb(50,50,50);
+			background-color:rgba(50,50,50,0.9);	
+		}
+		#imgHolder{
+			border:3px solid #ccffcc;
+			width:250px;
+			height:250px;
+			margin:20px;
+			float:left;
+			overflow:hidden;
+			color:rgb(255,255,255);
+			color:rgba(255,255,255,0.15);
+			font-size:36px;
+			font-family:Tahoma, Geneva, sans-serif;
+			text-align:center;	
+		}
+		#imgHolder.hover{
+			border:3px dashed #ccffcc;	
+		}
+		#allImages{
+			border:3px solid #ccffcc;
+			width:190px;
+			height:300px;
+			margin:20px;
+			float:right;
+			color:#ccffcc;
+			font-family:Tahoma, Geneva, sans-serif;
+			font-size:10px;
+			overflow:auto;
+			padding:4px;
+		}
+		.bgLoading{
+			display:block;
+			z-index:1100;
+			height:100%;
+			width:100%;
+			background:rgba(255,255,255,0.8) url(images/FhHRx.gif) 50% 50% no-repeat;	
+		}
+		
+	</style>
+</head>
+<body>
+	<!-- add html here -->
+	<div id="outerBox"></div>
+    <div id="UploadBox">
+    	
+        <div id="ubInstructions" style="position:relative; top:15px; left:10px; color:#dddddd;">Drag and drop your image to box below</div>
+        <div id="UploadBoxClose" style="position:relative; top:0px; left:510px; width:15px; text-align:center; border:1px solid #dddddd; padding:1px; cursor:pointer; color:#dddddd">X</div>
+        <div id="imgHolder">&nbsp;<br />Drop<br />&nbsp;<br />Here </div>
+        <div id="allImages"><p>Uploaded Images: </p></div>
+        
+    </div>
+	
+	
+	
+	
+	<script type="text/javascript"><!--
+		// add javascript and jQuery here
+		$(document).ready(function(e) {
+			$("#outerBox").css("position","absolute");
+			$("#outerBox").css("top", Math.max( 0, (($(window).height() - $("#outerBox").outerHeight()) / 2 ) + $(window).scrollTop()) + "px");
+			$("#outerBox").css("left", Math.max( 0, (($(window).width() - $("#outerBox").outerWidth()) / 2 ) + $(window).scrollLeft()) + "px");
+			$("#outerBox").hide();
+			$("#UploadBox").css("position","absolute");
+			$("#UploadBox").css("top", Math.max( 0, (($(window).height() - $("#UploadBox").outerHeight()) / 2 ) + $(window).scrollTop()) + "px");
+			$("#UploadBox").css("left", Math.max( 0, (($(window).width() - $("#UploadBox").outerWidth()) / 2 ) + $(window).scrollLeft()) + "px");
+			$("#UploadBox").hide();
+			$("#uploadImagesAnchor").click(function(e) {
+                e.preventDefault();
+				$("#UploadBox").fadeIn(300);
+				$("#outerBox").fadeIn(300);
+            });
+			$("#UploadBoxClose").click(function(e) {
+                e.preventDefault();
+				$("#outerBox").fadeOut(300);
+				$("#UploadBox").fadeOut(300);
+            });
+     	});	
+   										
+
+
+		
+
+
+		function getXMLHTTPRequest()
+		{
+			var request = false;
+			try
+			{
+				//firefox
+				request = new XMLHttpRequest();
+			}
+			catch(error1)
+			{
+				try
+				{
+					//some version of ie
+					request = new ActiveXObject("Msxml2.XMLHTTP");
+				}
+				catch(error2)
+				{
+					try
+					{
+						//some version of ie
+						request = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					catch(error3)
+					{
+						request = false;
+					}//close catch 3
+				}//close catch 2
+			}//close catch 1
+			return request;
+		}//end getXMLHTTPRequest
+
+
+		
+		//add stuff here
+		var imgHolder = document.getElementById('imgHolder');
+		var url = "upload.php";
+		imgHolder.ondragover = function() {
+			this.className = "hover";
+			return false;	
+		};
+		imgHolder.ondragend = function() {
+			this.className = "";
+			return false;	
+		};
+		
+		
+		imgHolder.ondrop     = function(event) {  
+			this.className = '';
+			event.preventDefault();
+			
+			$("#imgHolder").html("");
+			$("#imgHolder").addClass("bgLoading");
+			
+			var file = event.dataTransfer.files[0];
+			var reader = new FileReader();
+			var preview = new FileReader();
+			
+			reader.onloadend = function()
+			{
+				binary = reader.result;
+				//begin ajax
+				request = getXMLHTTPRequest();
+				request.onreadystatechange = function()
+				{
+					
+					if(request.readyState == 4 && request.status == 200)
+					{
+						result = request.responseText;
+						eval("result=" + request.responseText);
+						
+						if((result.error === undefined) || (result.error == "") ) {
+							$("#imgHolder").removeClass("bgLoading");
+							$("#imgHolder").html("");
+							imgHolder.innerHTML = "<img id='img1' src='" + result.source + "' width='250' alt='' title='' />";
+							allImages.innerHTML += "<img style='margin:2px;' src='" + result.source + "' width='75' alt='' title='' />";
+							//alert("!!!!!!!!!!!!!!");
+						}
+						else if(result.toLowerCase().includes("fail")) {
+							$("#imgHolder").removeClass("bgLoading");
+							imgHolder.innerHTML = "<p style='font-size:8px; color:white;'>" + result + "</p>";
+						}
+						else {
+							$("#imgHolder").removeClass("bgLoading");
+							$("#imgHolder").html(result.error);
+						}
+						
+						
+						$("#allImages").animate({
+							scrollTop: $("#allImages")[0].scrollHeight+10
+							},1500
+						);
+						//add stuff here
+					
+					}//end error
+					
+				}//end onreadystatechange
+				
+				
+				//don't touch anything below here.
+				
+				if(request.sendAsBinary != null){
+					request.open('POST', url + '?binary=true', true);
+					
+					var boundary = 'xxxxxxxxx';
+					var body = '--' + boundary + '\r\n';
+					body += "Content-Disposition: form-data; name='image'; filename='" + file.name + "'\r\n";
+					body += "Content-Type: application/octet-stream\r\n\r\n";
+					body += binary + "\r\n";
+					body += '--' + boundary + '--';
+					
+					request.setRequestHeader('content-type', 'multipart/form-data; boundary=' + boundary);
+					request.sendAsBinary(body);
+				}else {
+					request.open('POST', url + '?binary=false', true);
+					
+					request.setRequestHeader('UP-FILENAME', file.name);
+					request.setRequestHeader('UP-SIZE', file.size);
+					request.setRequestHeader('UP-TYPE', file.type);
+					
+					request.send( window.btoa(binary) );
+				}
+
+				preview.onloadend = function(){
+				};
+				
+				
+			}//end onloadend
+			
+			reader.readAsBinaryString(file);
+			preview.readAsDataURL(file);
+			
+			return false;
+		}; //end ondrop
+
+	--></script>
+
+
+<!-- You need the above stuff to do the uploading -->
+<!-- template stuff below -->
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- zenlike1.0 by nodethirtythree design
+	 http://www.nodethirtythree.com      -->
+
+<div id="upbg"></div>
+
+<div id="outer">
+
+
+	<div id="header">
+		<div id="headercontent">
+			<h1>Zenlike<sup>1.0</sup></h1>
+			<h2>A free design by NodeThirtyThree</h2>
+		</div>
+	</div>
+
+
+	<form method="post" action="">
+		<div id="search">
+			<input type="text" class="text" maxlength="64" name="keywords" />
+			<input type="submit" class="submit" value="Search" />
+		</div>
+	</form>
+
+
+	<div id="headerpic"></div>
+
+	
+	<div id="menu">
+		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#" class="active">News</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Gallery</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</div>
+	<div id="menubottom"></div>
+
+	
+	<div id="content">
+
+		<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+		<div id="normalcontent">
+			<h3>Upload your files here</h3>
+			<div class="contentarea">
+				<!-- Normal content area start -->
+                <!-- ADD THE ANCHOR TAG BELOW FOR THIS ASSIGNMENT ------------------------------------------------- -->
+
+				<img src="images/pic1.jpg" class="left" alt="A chinese lion statue" />
+				<p>Click here to <a href="#" id="uploadImagesAnchor">upload new images</a></p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+
+				<!-- Normal content area end -->
+			</div>
+		</div>
+
+	
+		<div class="divider1"></div>
+
+
+		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
+		<div id="primarycontainer">
+			<div id="primarycontent">
+				<!-- Primary content area start -->
+		
+				<div class="post">
+					<h4>Lorem Ipsum Veroeros</h4>
+					<div class="contentarea">
+						<div class="details">Posted by <a href="#">Jane Doe</a> on September 25, 2006</div>	
+						<p>Volutpat at varius sed sollicitudin et, arcu. Vivamus viverra. Nullam turpis. Vestibulum sed etiam. Lorem ipsum sit amet dolore. Nulla facilisi. Sed tortor. Aenean felis. Quisque eros. Cras lobortis commodo metus. Vestibulum vel purus. In eget odio in sapien adipiscing blandit. Quisque augue tortor, facilisis sit amet, aliquam, suscipit vitae, cursus sed, arcu lorem ipsum dolor sit amet.</p>
+						<ul class="controls">
+							<li><a href="#" class="printerfriendly">Printer Friendly</a></li>
+							<li><a href="#" class="comments">Comments (18)</a></li>
+							<li><a href="#" class="more">Read More</a></li>				
+						</ul>
+					</div>
+				</div>
+		
+				<div class="divider2"></div>
+		
+				<div class="post">
+					<h4>Consequat Odio Vestibulum</h4>
+					<div class="contentarea">
+						<div class="details">Posted by <a href="#">Jane Doe</a> on September 25, 2006</div>	
+						<img src="images/pic3.jpg" class="left" alt="A chinese dragon" />
+						<p>Aenean felis quisque eros. Cras lobortis commodo lorem ipsum dolor. Vestibulum vel purus. In eget odio in sapien adipiscing blandit. Lorem ipsum dolor sit amet consequat etiam sed dolore.</p>
+						<ul class="controls">
+							<li><a href="#" class="printerfriendly">Printer Friendly</a></li>
+							<li><a href="#" class="comments">Comments (18)</a></li>
+							<li><a href="#" class="more">Read More</a></li>				
+						</ul>
+					</div>
+				</div>
+	
+				<div class="divider2"></div>
+		
+				<div class="post">
+					<h4>Adipiscing Nullam</h4>
+					<div class="contentarea">
+						<div class="details">Posted by <a href="#">Jane Doe</a> on September 25, 2006</div>	
+						<p>Eget odio in sapien adipiscing blandit. Quisque augue tortor, facilisis sit amet, aliquam, suscipit vitae, cursus sed, arcu lorem ipsum dolor sit amet felis quisque eros. Cras lobortis commodo lorem ipsum dolor. Vestibulum vel purus. In eget odio in sapien adipiscing blandit. Quisque augue tortor, facilisis sit amet, aliquam, suscipit lorem ipsum dolor.</p>
+						<ul class="controls">
+							<li><a href="#" class="printerfriendly">Printer Friendly</a></li>
+							<li><a href="#" class="comments">Comments (18)</a></li>
+							<li><a href="#" class="more">Read More</a></li>				
+						</ul>
+					</div>
+				</div>
+
+				<!-- Primary content area end -->
+			</div>
+		</div>
+
+		
+		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
+		<div id="secondarycontent">
+			<!-- Secondary content area start -->
+			
+			<!-- HINT: Set any div's class to "box" to encapsulate it in (you guessed it) a box -->
+			<div class="box">
+				<h4>Blandit Veroeros</h4>
+				<div class="contentarea">
+					<img src="images/pic2.jpg" class="left" alt="Random foliage" />
+					<p>Sed etiam et lorem ipsum nulla vero et lobortis felis sed etiam. Lorem ipsum sit amet dolore. Nulla facilisi. Sed tortor. Aenean felis. Quisque eros etiam <a href="#">sed commodo</a>.</p>
+				</div>
+			</div>
+		
+			<div>
+				<h4>Nullam Dolore</h4>
+				<div class="contentarea">
+					<ul class="linklist">
+						<li><a href="#">Volutpat at varius sed</a></li>
+						<li><a href="#">Sollicitudin et arcu</a></li>
+						<li><a href="#">Vivamus viverra nullam</a></li>
+						<li><a href="#">Turpis vestibulum</a></li>
+						<li><a href="#">Sed etiam lorem ipsum</a></li>
+						<li><a href="#">Sit amet dolore nulla</a></li>
+						<li><a href="#">Facilisi sed tortor</a></li>
+						<li><a href="#">Aenean felis quisque</a></li>
+						<li><a href="#">Eros cras lobortis vel</a></li>
+						<li><a href="#">Purus in eget odio sapien</a></li>
+						<li><a href="#">Adipiscing blandit</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Secondary content area end -->
+		</div>
+
+
+	</div>
+
+	<div id="footer">
+			<div class="left">&copy; 2006 Your Website Name. All rights reserved.</div>
+			<div class="right">Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree Design</a></div>
+	</div>
+	
+</div>
+
+</body>
+</html>

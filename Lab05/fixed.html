@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8" />
+<title>fixed page</title>
+<style type="text/css">
+
+	body{
+		background-color:#cca;	
+	}
+	#dropdown{
+		position:absolute;
+		top:-150px;
+		left:350px;
+		background-color:white;
+		padding:20px;
+		border:1px solid black;
+	}
+	#dropdown.fixed{
+		position:fixed;	
+	}
+	span{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12pt;
+		font-weight:bold;
+		padding:9px;
+		margin-left:15px;
+		float:left;
+	}
+	#contact{
+		position:absolute;
+		top:150px;
+		left:-60px;
+		background-color:#f93;
+		opacity:0.9;
+		width:150px;
+		height:35px;
+		margin:0px;
+		padding:0px;
+		border:1px solid black;	
+	}
+	#contact.fixed{
+		position:fixed;
+		top:150px;	
+	}
+	.rotate{
+		-moz-transform:rotate(-90deg);
+		-webkit-transform:rotate(-90deg);	
+		-ms-transform:rotate(-90deg);	
+		-o-transform:rotate(-90deg);	
+	}
+
+</style>
+</head>
+
+<body>
+
+	<div id="contact">
+    	<span>Contact us</span>
+    </div>
+	
+    <div id="dropdown">
+    	Place ad content here<br /><br/>
+        Will you take our online survey?<br/><br/>
+        <a href="#">Close</a>
+    </div>
+    
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+    <p>qwertyqewryqwetyqwetyqwetyqywteqweyt</p>
+  
+    <script type="text/javascript">
+		$(document).ready(function(e) {
+            
+			$("#dropdown").animate({
+				top:"+=400"
+			}, 2000);
+			
+			$("#dropdown").addClass("fixed");
+			
+			$("a").click(function(event){
+				event.preventDefault();
+				$("#dropdown").css("top","-150px");
+				//$("#dropdown").hide();
+			});
+			
+			$("#contact").addClass("rotate");
+			
+			$(window).scroll(function(event){
+				$("#contact").addClass("fixed");
+			});
+			
+			
+			
+        });//end of function ready
+	</script>
+    
+    
+</body>
+</html>

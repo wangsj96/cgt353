@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Responsive Design</title>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+
+<style type="text/css">
+	#top{
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:1450px;
+		height:200px;
+		background-color:black;
+	}
+	#left{
+		position:absolute;
+		top:200px;
+		left:0px;
+		width:220px;
+		height:200%;
+		background-color:#bbb;
+		padding:15px;
+	}
+	#middle{
+		position:absolute;
+		top:200px;
+		left:250px;
+		width:770px;
+		height:200%;
+		background-color:#eee;
+		padding:15px;
+	}
+	#right{
+		position:absolute;
+		top:200px;
+		left:1050px;
+		width:370px;
+		height:200%;
+		background-color:#b1946c;
+		padding:15px;
+	}
+	h1{
+		color:#ccc;
+		font-size:50px;
+		text-align:center;	
+	}
+	h3{
+		color:black;
+		font-size:20px;
+		font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;	
+	}
+	ul{
+		list-style:none;
+		text-decoration:underline;
+		color:#39f;
+		font-size:18px;	
+		cursor:pointer;
+	}
+	
+	@media screen and (max-width: 1200px){
+		#top{
+			position:absolute;
+			top:0px;
+			left:0px;
+			width:1250px;
+			height:200px;
+			background-color:black;
+		}
+		#middle{
+			position:absolute;
+			top:200px;
+			left:250px;
+			width:570px;
+			height:200%;
+			background-color:#eee;
+			padding:15px;
+		}
+		#right{
+			position:absolute;
+			top:200px;
+			left:850px;
+			width:370px;
+			height:200%;
+			background-color:#b1946c;
+			padding:15px;
+		}
+	}
+	@media screen and (max-width: 1000px){
+		#top{
+			position:absolute;
+			top:0px;
+			left:0px;
+			width:800px;
+			height:200px;
+			background-color:black;
+		}
+		#middle{
+			position:absolute;
+			top:200px;
+			left:250px;
+			width:520px;
+			height:200%;
+			background-color:#eee;
+			padding:15px;
+		}
+		#right{
+			display:none;
+		}
+	}
+	@media screen and (max-width: 800px){
+		#top{
+			position:absolute;
+			top:0px;
+			left:0px;
+			width:600px;
+			height:200px;
+			background-color:black;
+		}
+		#middle{
+			position:absolute;
+			top:200px;
+			left:150px;
+			width:420px;
+			height:200%;
+			background-color:#eee;
+			padding:15px;
+		}
+		#right{
+			display:none;
+		}
+		#left{
+			position:absolute;
+			top:200px;
+			left:0px;
+			width:120px;
+			height:200%;
+			background-color:#bbb;
+			padding:15px;
+		}
+	}
+	@media screen and (max-width: 600px){
+		#top{
+			position:absolute;
+			top:0px;
+			left:0px;
+			width:400px;
+			height:200px;
+			background-color:black;
+		}
+		#middle{
+			position:absolute;
+			top:200px;
+			left:130px;
+			width:240px;
+			height:200%;
+			background-color:#eee;
+			padding:15px;
+		}
+		#right{
+			display:none;
+		}
+		#left{
+			position:absolute;
+			top:200px;
+			left:0px;
+			width:100px;
+			height:200%;
+			background-color:#bbb;
+			padding:15px;
+		}
+		h1{
+			color:#ccc;
+			font-size:30px;
+			text-align:center;	
+		}
+		h3{
+			color:black;
+			font-size:16px;
+			font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;	
+		}
+		ul{
+			display:none;
+		}
+	}
+	@media screen and (max-width: 400px){
+		#top{
+			position:absolute;
+			top:0px;
+			left:0px;
+			width:330px;
+			height:200px;
+			background-color:black;
+		}
+		#middle{
+			position:absolute;
+			top:700px;
+			left:0px;
+			width:300px;
+			height:200%;
+			background-color:#eee;
+			padding:15px;
+		}
+		#right{
+			display:none;
+		}
+		#left{
+			position:absolute;
+			top:200px;
+			left:0px;
+			width:90px;
+			height:200%;
+			background-color:#bbb;
+			padding:15px;
+		}
+		h1{
+			color:#ccc;
+			font-size:30px;
+			text-align:center;	
+		}
+		h3{
+			width:300px;
+			height:35px;
+			text-align:center;
+			background-color:#b1946c;
+			color:black;
+			font-size:16px;
+			font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+		}
+		ul{
+			display:none;
+		}
+	}
+	@media screen and (max-width: 250px){
+		#top{
+			position:absolute;
+			top:0px;
+			left:0px;
+			width:240px;
+			height:200px;
+			background-color:black;
+		}
+		#middle{
+			position:absolute;
+			top:650px;
+			left:0px;
+			width:230px;
+			height:200%;
+			background-color:#eee;
+			padding:15px;
+		}
+		#right{
+			display:none;
+		}
+		#left{
+			position:absolute;
+			top:200px;
+			left:0px;
+			width:70px;
+			height:200%;
+			background-color:#bbb;
+			padding:15px;
+		}
+		h1{
+			color:#ccc;
+			font-size:25px;
+			text-align:center;	
+		}
+		h3{
+			width:230px;
+			height:35px;
+			text-align:center;
+			background-color:#b1946c;
+			color:black;
+			font-size:16px;
+			font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+		}
+		ul{
+			display:none;
+		}
+	}
+</style>
+
+</head>
+
+<body>
+
+	<div id="top"></div>
+    <div id="left"></div>
+    <div id="middle"></div>
+    <div id="right"></div>
+    
+    <div id="banner">
+    	<img src="images/PurdueLogo.gif" alt="Purdue" title="Purdue" width="200"/>
+        <h1>Responsive Design</h1>
+    </div>
+    
+    <div id="ads">
+    	<img src="images/adLogo.jpg" alt="ad" title="ad" width="350" />
+        <br /><br />
+        <img src="images/adLogo.jpg" alt="ad" title="ad" width="350" />
+        <br /><br />
+        <img src="images/adLogo.jpg" alt="ad" title="ad" width="350" />
+        <br /><br />
+        <img src="images/adLogo.jpg" alt="ad" title="ad" width="350" />
+        <br /><br />
+        <img src="images/adLogo.jpg" alt="ad" title="ad" width="350" />
+        <br /><br />
+        <img src="images/adLogo.jpg" alt="ad" title="ad" width="350" />
+        <br /><br />
+    </div>
+	
+    <div id="nav">
+    	<h3>Coding</h3>
+        <ul>
+        	<li>Awesome Link 1</li>
+            <li>Awesome Link 2</li>
+            <li>Awesome Link 3</li>
+            <li>Awesome Link 4</li>
+            <li>Awesome Link 5</li>
+        </ul>
+        <h3>CSS3</h3>
+        <ul>
+        	<li>Awesome Link 1</li>
+            <li>Awesome Link 2</li>
+            <li>Awesome Link 3</li>
+            <li>Awesome Link 4</li>
+            <li>Awesome Link 5</li>
+        </ul>
+        <h3>HTML5</h3>
+        <ul>
+        	<li>Awesome Link 1</li>
+            <li>Awesome Link 2</li>
+            <li>Awesome Link 3</li>
+            <li>Awesome Link 4</li>
+            <li>Awesome Link 5</li>
+        </ul>
+        <h3>PHP</h3>
+        <ul>
+        	<li>Awesome Link 1</li>
+            <li>Awesome Link 2</li>
+            <li>Awesome Link 3</li>
+            <li>Awesome Link 4</li>
+            <li>Awesome Link 5</li>
+        </ul>
+        <h3>JavaScript</h3>
+        <ul>
+        	<li>Awesome Link 1</li>
+            <li>Awesome Link 2</li>
+            <li>Awesome Link 3</li>
+            <li>Awesome Link 4</li>
+            <li>Awesome Link 5</li>
+        </ul>
+        <h3>JQuery</h3>
+        <ul>
+        	<li>Awesome Link 1</li>
+            <li>Awesome Link 2</li>
+            <li>Awesome Link 3</li>
+            <li>Awesome Link 4</li>
+            <li>Awesome Link 5</li>
+        </ul>
+        <h3>SQL</h3>
+        <ul>
+        	<li>Awesome Link 1</li>
+            <li>Awesome Link 2</li>
+            <li>Awesome Link 3</li>
+            <li>Awesome Link 4</li>
+            <li>Awesome Link 5</li>
+        </ul>
+    </div>
+    
+    <script>
+		$(document).ready(function(e) {
+            $("#top").html($("#banner"));
+			$("#left").html($("#nav"));
+			$("#right").html($("#ads"));
+			
+			$("#middle").append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius facilisis ipsum nec scelerisque. Mauris leo diam, hendrerit nec nisi non, vulputate interdum nunc.");
+			$("#middle").append("Praesent fermentum rutrum efficitur. Quisque scelerisque varius mauris sed dignissim. Integer sodales nisi at erat fringilla sodales.");
+			$("#middle").append("In elit odio, congue a porttitor at, tristique vitae diam. Mauris vitae ex sed tellus tristique cursus.");
+			$("#middle").append("Proin tempus est id justo lobortis bibendum. Fusce id bibendum magna, in eleifend neque. Ut vestibulum faucibus velit id dapibus. Nulla nisi ante, imperdiet sed leo in, accumsan aliquet dolor. Suspendisse elementum at nulla id egestas. Sed ac sem dui. Mauris ut justo at felis consequat feugiat.");
+			$("#middle").append("Sed eu ante laoreet, molestie urna eu, efficitur turpis. Ut condimentum sit amet nisl a iaculis. Cras pretium condimentum ipsum, ut fermentum augue tincidunt eu. Curabitur luctus ante at faucibus finibus. Duis vehicula eu orci nec ultrices.");
+			$("#middle").append("Nullam sed justo id arcu pulvinar fringilla. Ut nec neque ante. Donec dui erat, posuere aliquet orci a, dictum ullamcorper mi. Integer accumsan libero magna, tristique convallis ex pellentesque ac. Nam varius elit eu diam lobortis venenatis. Aliquam faucibus porta turpis vel aliquam.");
+			$("#middle").append("Suspendisse potenti. Nunc in dui id leo iaculis fringilla a non dui. Nunc a diam quam. Praesent venenatis orci eget enim vestibulum, a sagittis diam consectetur. Aliquam mauris massa, fringilla nec eros nec, cursus rhoncus sapien. Quisque faucibus orci ac erat sagittis, eu gravida massa egestas.");
+			$("#middle").append("Donec quam lacus, ullamcorper a tellus nec, efficitur vehicula lorem. Cras magna arcu, auctor et pharetra sed, auctor non leo. Nam porta lacus tellus, finibus ultrices magna finibus nec. Aenean leo enim, finibus a urna sit amet, dignissim mollis eros. Sed tristique non sem nec accumsan.");
+			
+			
+        });//end of ready function
+	</script>
+    
+</body>
+</html>
