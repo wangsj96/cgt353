@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Lab03</title>
+<style type="text/css">
+	div{
+		width:150px;
+		height:200px;
+		border:1px solid #aaa;
+		text-align:center;
+		background-color:#eee;
+	}
+	div#wrapper{
+		position:absolute;
+		top:20px;
+		left:20px;
+		width:750px;
+		height:490px;	
+	}
+	div#th1{
+		position:absolute;
+		top:30px;
+		left:30px;
+		background:url(images/1.jpg) no-repeat center;	
+	}
+	div#th2{
+		position:absolute;
+		top:30px;
+		left:210px;
+		background:url(images/2.jpg) no-repeat center;	
+	}
+	div#th3{
+		position:absolute;
+		top:30px;
+		left:390px;
+		background:url(images/3.jpg) no-repeat center;	
+	}
+	div#th4{
+		position:absolute;
+		top:30px;
+		left:570px;
+		background:url(images/4.png) no-repeat center;	
+	}
+	div#th5{
+		position:absolute;
+		top:260px;
+		left:30px;
+		background:url(images/5.jpg) no-repeat center;	
+	}
+	div#th6{
+		position:absolute;
+		top:260px;
+		left:210px;
+		background:url(images/6.jpg) no-repeat center;	
+	}
+	div#th7{
+		position:absolute;
+		top:260px;
+		left:390px;
+		background:url(images/7.jpg) no-repeat center;	
+	}
+	div#th8{
+		position:absolute;
+		top:260px;
+		left:570px;
+		background:url(images/8.png) no-repeat center;	
+	}
+</style>
+<script src="js/jquery-3.1.0.min.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+    	<div id="th1"></div>
+        <div id="th2"></div>
+        <div id="th3"></div>
+        <div id="th4"></div>
+        <div id="th5"></div>
+        <div id="th6"></div>
+        <div id="th7"></div>
+        <div id="th8"></div>
+    </div>
+    <script type="text/javascript">
+    	$(document).ready(function(e) {
+			//round corners
+            $("div").css("border-radius", "10px");
+			//
+			$("div[id!='wrapper']").animate({"opacity":0.6}).hover(function(){
+				
+				$(this).animate({"opacity":1});
+			
+			}, function() {
+				
+				$(this).animate({"opacity":0.6});
+			
+			});
+        });/////end of doc ready
+    </script>
+</body>
+</html>
