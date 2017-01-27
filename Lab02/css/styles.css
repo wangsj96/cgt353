@@ -1,0 +1,143 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,h1,form,fieldset,legend,ol,li{
+	margin:0;
+	padding:0;	
+}
+body{
+	background:#ffffff;
+	color:#111111;
+	font-family:Arial, Helvetica, sans-serif;
+	padding:20px;
+}
+h1{
+	font-size:28px;
+	margin-bottom:20px;
+}
+form#payment{
+	background:#a0bbc6;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-khtml-border-radius:5px;
+	border-radius:5px;
+	counter-reset:fieldsets;
+	padding:20px;
+	width:600px;	
+}
+form#payment fieldset{
+	border:none;
+	margin-bottom:10px;
+}
+form#payment fieldset:last-of-type{
+	margin-bottom:0;	
+}
+form#payment legend{
+		color:#455156;
+		font-size:16px;
+		font-weight:bold;
+		padding-bottom:10px;
+		text-shadow:0 1px 1px #333b3f;
+}
+span#progress{
+	color:#455156;
+	font-size:14px;
+	padding-bottom:10px;
+}
+form#payment > fieldset > legend:before{
+	content: "Step " counter(fieldsets) ": ";
+	counter-increment:fieldsets;
+}
+form#payment fieldset fieldset legend{
+	color:#111111;
+	font-size:13px;
+	font-weight:normal;
+	padding-bottom:0;	
+}
+form#payment ol li{
+	background:#b9cf6a;
+	background:rgba(255,255,255,0.3);
+	border-color:#e3ebc3;
+	border-color:rgba(255,255,255,0.6);
+	border-style:solid;
+	border-width:2px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-khtml-border-radius:5px;
+	border-radius:5px;
+	line-height:30px;
+	list-style:none;
+	padding:5px 10px;
+	margin-bottom:2px;
+}
+form#payment ol ol li{
+	background:none;
+	border:none;
+	float:left;	
+}
+form#payment label{
+	float:left;
+	font-size:13px;
+	width:110px;	
+}
+form#payment fieldset fieldset label{
+	background:none no-repeat left 50%;
+	line-height:20px;
+	padding:0 0 0 30px;
+	width:auto;	
+}
+form#payment label[for=visa]{
+	background-image:url(visa.png);
+}
+form#payment label[for=mastercard]{
+	background-image:url(mastercard.jpg);
+}
+form#payment label[for=amex]{
+	background-image:url(amex.png);
+}
+form#payment label[for=discover]{
+	background-image:url(discover.jpeg);
+}
+form#payment fieldset fieldset label:hover{
+	cursor:pointer;	
+}
+form#payment input:not([type=radio]),
+form#payment textarea{
+	background:white;
+	border:none;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	-khtml-border-radius:3px;
+	border-radius:3px;
+	font:italic 13px Verdana, Geneva, sans-serif;
+	outline:none;
+	padding:5px;
+	width:400px;
+}
+form#payment iput:not([type=submit]):focus,
+form#payment textarea:focus{
+	background:#bababa;
+}
+form#payment input[type=radio]{
+	float:left;
+	margin-right:5px;	
+}
+form#payment button{
+	background:#333b3f;
+	border:none;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-khtml-border-radius:10px;
+	border-radius:10px;
+	color:white;
+	display:block;
+	font:18px Tahoma, Geneva, sans-serif;
+	letter-spacing:1px;
+	margin:auto;
+	padding:7px 25px;
+	text-shadow:0 1px 1px #000000;
+	text-transform:uppercase;	
+}
+form#payment button:hover{
+	background:#1e2506;
+	cursor:pointer;	
+}

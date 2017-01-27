@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<title>Intelligent forms</title>
+	<script type="text/javascript"><!--
+    
+	function updateProgress() {
+		var pb = document.getElementById("pb");
+		var cnt = 0;
+		
+		if((document.getElementById("name").value != "Enter your full name") && (document.getElementById("name").value != "")) {
+			cnt ++;
+		}
+		if((document.getElementById("email").value != "example@domain.com") && (document.getElementById("email").value != "")) {
+			cnt ++;
+		}
+		if((document.getElementById("phone").value != "Eample: 123-456-7890") && (document.getElementById("phone").value != "")) {
+			cnt ++;
+		}
+		if(document.getElementById("date").value != "") {
+				cnt ++;
+		}
+		if(document.getElementById("address").value != "") {
+				cnt ++;
+		}
+		if(document.getElementById("postcode").value != "") {
+				cnt ++;
+		}if(document.getElementById("country").value != "") {
+				cnt ++;
+		}
+		if(document.getElementById("cardNumber").value != "") {
+				cnt ++;
+		}
+		if(document.getElementById("securityCode").value != "") {
+				cnt ++;
+		}
+		if(document.getElementById("nameOnCard").value != "") {
+				cnt ++;
+		}
+		
+		var cardtype=document.getElementsByName("cardtype");
+		var flag = false;
+		
+		for(var i = 0; i < cardtype.length; i ++) {
+			if(cardtype[i].checked) {
+				flag = true;
+			}
+		}
+		if(flag == true) {
+			cnt ++;	
+		}
+		pb.value = cnt;
+	}
+    
+    --></script>
+</head>
+
+<body>
+	<h1>Payment Form</h1>
+    <div style="margin-left:190px;"><span id="progress">Progress:</span><progress id="pb" value="0" max="11"></progress>
+    </div>
+	<form id="payment" action="processform.php" method="post">
+    	<fieldset>
+        	<legend>Personal Information</legend>
+            <ol>
+            	<li>
+                	<label for="name">Name: </label>
+                    <input id="name" name="name" type="text" placeholder="Enter your full name" required autofocus onchange = "updateProgress();"/>
+                </li>
+                <li>
+                	<label for="email">Email: </label>
+                    <input id="email" name="email" type="email" placeholder="example@domain.com" required onchange = "updateProgress();"/>
+                </li>
+                <li>
+                	<label for="phone">Phone: </label>
+                    <input id="phone" name="phone" type="tel" placeholder="Eample: 123-456-7890" required onchange = "updateProgress();"/>
+                </li>
+                <li>
+                	<label for="date">Date: </label>
+                    <input id="date" name="date" type="date" requiredonchange = "updateProgress();" />
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+        	<ol>
+            	<li>
+                	<label for="address">Address: </label>
+                    <textarea id="address" name="address" rows="5" required onchange = "updateProgress();"></textarea>
+                </li>
+                <li>
+                	<label for="postcode">Zip Code: </label>
+                    <input id="postcode" name="postcode" type="text" required onchange = "updateProgress();"/>
+                </li>
+                <li>
+                	<label for="country">Country: </label>
+                    <input id="country" name="country" type="text" required onchange = "updateProgress();"/>
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+        	<legend>Payment Information</legend>
+            <ol>
+           		<li>
+                	<fieldset>
+                    	<legend>Card Type</legend>
+                        <ol>
+                        	<li>
+                            <input id="visa" name="cardtype" type="radio" onChange="updateProgress();" />
+                            <label for="visa">Visa</label>
+                            </li>
+                            <li>
+                            <input id="mastercard" name="cardtype" type="radio" onChange="updateProgress();" />
+                            <label for="mastercard">Mastercard</label>
+                            </li>
+                            <li>
+                            <input id="discover" name="cardtype" type="radio" onChange="updateProgress();" />
+                            <label for="discover">Discover</label>
+                            </li>
+                            <li>
+                            <input id="amex" name="cardtype" type="radio" onChange="updateProgress();" />
+                            <label for="amex">American Express</label>
+                            </li>
+                        </ol>
+                    </fieldset>
+                </li>
+                <li>
+                	<label for="cardNumber">Card Number: </label>
+                    <input id="cardNumber" name="cardNumber" type="number" required onchange = "updateProgress();"/>
+                </li>
+                <li>
+                	<label for="securityCode">Security Code: </label>
+                    <input id="securityCode" name="securityCode" type="number" required onchange = "updateProgress();"/>
+                </li>
+                <li>
+                	<label for="nameOnCard">Name On Card: </label>
+                    <input id="nameOnCard" name="nameOnCard" type="text" required onchange = "updateProgress();"/>
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+        	<button type="submit">Proceed</button>
+        </fieldset>
+    </form>
+
+</body>
+</html>
