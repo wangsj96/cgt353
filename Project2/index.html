@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pikachu Jump</title>
+<style>
+	
+	body{
+		margin:0px;
+		padding:0px;
+		text-align:center;	
+	}
+	h1{
+		font-family:Tahoma, Geneva, sans-serif;	
+	}
+	canvas#canv{
+		outline:0;
+		border:1px solid black;
+		margin:0 auto;	
+	}
+	#btn{
+		position:absolute;
+		top:45%;
+		left:48%;
+		border-radius:5px;
+		background-color:#84D1D1;
+		color:#FFEEFA;
+	}
+	img{
+		margin-top:5px;	
+	}
+	
+</style>
+</head>
+
+<body>
+	<h1>Pikachu Jump</h1>
+	<canvas id="canv"></canvas>
+    <script src="js/game.js" type="text/javascript"></script>
+    <br /><button onClick="reStart()" id="btn" style="display:none">Restart</button>
+    <br />
+	<span>Use</span><img src="image/arrow2.png"><span> / <img src="image/arrow1.png"> OR <img src="image/mouse.png"> to move Pikachu. Enjoy Your Game!</span>
+</body>
+</html>
