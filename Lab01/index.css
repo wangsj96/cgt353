@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	width:60%;
+	margin:0 auto;
+}
+#content{
+	margin-top:8%;
+	position:relative;
+	width: 73%;
+	float:left;
+}
+img{
+	margin-top:9%;
+	float:right;
+	margin-right:7%;
+}
+strong{
+	font-size:36px;
+	font-family:"Times New Roman", Times, serif;
+}
+p{
+	line-height:20px;
+	font-size:18px;
+}
