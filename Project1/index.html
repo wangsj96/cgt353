@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/style.css" media="screen" />
+
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<title>Movado</title>
+</head>
+
+<body>
+	<div id="content">
+    <h1>MOVADO</h1>
+	<div id="container">
+        <div id="output"></div>
+        <div class="pics" id="s1">
+    		<img id="automaticPic" src="images/1881.jpg" width="730" height="730" alt="1881 Automatic"/>
+        	<img id="heritagePic" src="images/heritage.jpg" width="730" height="730" alt="Heritage" />
+        	<img id="museumPic" src="images/museum.jpg" width="730" height="730" alt="Museum Classic" />
+        	<img id="sapphirePic" src="images/sapphire.jpg" width="730" height="730" alt="Sapphire" />
+        	<img id="boldPic" src="images/bold.jpg" width="730" height="730" alt="Bold" />
+        	<img id="edgePic" src="images/edge.jpg" width="730" height="730" alt="Edge" />
+    	</div>
+        <div id="prev"></div>
+        <div id="next"></div>
+    </div>
+    <div id="contact">
+    	<span>Explore More</span>    
+    </div>
+    <div id="contactForm">
+    	<div id="contactClose" style="position:relative; text-align:center; width:15px; left:375px; top:5px; border:1px solid #dddddd; padding:1px; color:#dddddd; cursor:pointer">
+        X
+        </div>
+        <div id="contactAddress" style="position:relative; width:325px; left:45px; top:5px; padding:1px; color:#dddddd;">
+        	Designer: <br />&nbsp;<br />
+            Sijin Wang <br />&nbsp;<br />
+            wang2283@purdue.edu <br />&nbsp;<br />
+            Official Website:<br /><br />
+            <a href="http://www.movado.com" target="_blank">www.movado.com</a>
+        </div>
+    </div>
+    <div id="hover">
+    	<div id="about">
+        <h1>About Movado</h1>
+        <p>Movado is an American watchmaker best known for its Museum Watch. Designed in 1947 by Bauhaus-influenced artist Nathan George Horwitt, the watch dial has a very simple design dial defined by a solitary dot at 12, symbolizing the sun at high noon. It was originally made by Vacheron &amp; Constantin-Le Coultre Watches, Inc., and later produced by Movado. Horwitt's dial was selected for the permanent design collection of the Museum of Modern Art, New York, in 1960, the first watch dial ever awarded this distinction. The single dot dial now appears in many of Movado's timepieces.</p>
+        </div>
+    	<div id="automatic" style="display:none">
+        	<a href="automatic1.html"><img class="hoverPic1" src="images/thumbnails/1881-1.jpg" alt="1881" width="320" height="400"/></a>
+            <a href="automatic2.html"><img class="hoverPic2" src="images/thumbnails/1881-2.jpg" alt="1881" width="320" height="400"/></a>
+        </div>
+        <div id="sapphire" style="display:none">
+        	<a href="sapphire1.html"><img class="hoverPic1" src="images/thumbnails/sapphire1.jpg" alt="sapphire" width="320" height="400"/></a>
+            <a href="sapphire2.html"><img class="hoverPic2" src="images/thumbnails/sapphire2.jpg" alt="sapphire" width="320" height="400"/></a>
+        </div>
+        <div id="museum" style="display:none">
+        	<a href="museum1.html"><img class="hoverPic1" src="images/thumbnails/museum1.jpg" alt="museum" width="320" height="400"/></a>
+            <a href="museum2.html"><img class="hoverPic2" src="images/thumbnails/museum2.jpg" alt="museum" width="320" height="400"/></a>
+        </div>
+        <div id="bold" style="display:none">
+        	<a href="bold1.html"><img class="hoverPic1" src="images/thumbnails/bold1.jpg" alt="bold" width="320" height="400"/></a>
+            <a href="bold2.html"><img class="hoverPic2" src="images/thumbnails/bold2.jpg" alt="bold" width="320" height="400"/></a>
+        </div>
+        <div id="edge" style="display:none">
+        	<a href="edge1.html"><img class="hoverPic1" src="images/thumbnails/edge1.jpg" alt="edge" width="320" height="400"/></a>
+            <a href="edge2.html"><img class="hoverPic2" src="images/thumbnails/edge2.jpg" alt="edge" width="320" height="400"/></a>
+        </div>
+        <div id="heritage" style="display:none">
+        	<a href="heritage1.html"><img class="hoverPic1" src="images/thumbnails/heritage1.jpg" alt="heritage" width="320" height="400"/></a>
+            <a href="heritage2.html"><img class="hoverPic2" src="images/thumbnails/heritage2.jpg" alt="heritage" width="320" height="400"/></a>
+        </div>
+    </div>
+    </div>
+    
+    <script type="text/javascript">
+		$(document).ready(function(e) {
+			//image slide
+			$("#s1")
+			.before('<div id="nav">')
+			.cycle({
+				fx: 'scrollHorz',
+				timeout: 3000,
+				next: '#next',
+				prev: '#prev',
+				before:  onBefore, 
+    			after:   onAfter,
+				pager: '#nav',
+				easing: 'easeInOutCubic'
+				//pause: 1
+			});//end of image slide
+			//series name
+			$('#nav').insertAfter($('#s1'));
+			function onBefore() { 
+    			$('#output').html('<h3>' + this.alt + '</h3>'); 
+			} 
+			function onAfter() { 
+    			$('#output').html('<h3>' + this.alt + '</h3>'); 
+			}//end of name change
+			
+			//fixed side bar
+			var isShowing = 1;
+			$("#contact").addClass("rotate");
+			$(window).scroll(function(e){
+				$("#contact").addClass("fixed");
+			});
+			$("#contact").click(function(e){
+				e.preventDefault();
+				if(isShowing % 2 == 1) {
+					$("#contact").animate({
+						left:"+=410"
+					}, 700);
+					$("#contactForm").animate({
+						left:"+=410"
+					}, 700);
+					$("#contact").addClass("fixed");
+					$("#contactForm").addClass("fixed");
+					
+					$("#contact").css("background-color","rgba(177, 148, 108, 0.95)");
+					isShowing ++;	
+				}
+				else {
+					$("#contact").animate({
+						left:"-=410"
+					}, 700);
+					$("#contactForm").animate({
+						left:"-=410"
+					}, 700);
+					$("#contact").css("background-color","rgba(177, 148, 108, 0.75)");
+					isShowing ++;
+				}
+			});//click contact
+			
+			$("#contactClose").click(function(e){
+				e.preventDefault();
+				$("#contact").animate({
+						left:"-=410"
+					}, 700);
+					$("#contactForm").animate({
+						left:"-=410"
+					}, 700);
+					$("#contact").css("background-color","rgba(177, 148, 108, 0.75)");
+					isShowing ++;
+			});
+			
+			//div hover animation and css
+			$(".hoverPic1").css("border-radius","10px");
+			$(".hoverPic1").css("cursor","pointer");
+			$(".hoverPic2").css("border-radius","10px");
+			$(".hoverPic2").css("cursor","pointer");
+			
+			$(".hoverPic1").animate({"opacity":0.6}).hover(function(){
+				
+				$(this).animate({"opacity":1});
+			
+			}, function() {
+				
+				$(this).animate({"opacity":0.6});
+			
+			});
+			$(".hoverPic2").animate({"opacity":0.6}).hover(function(){
+				
+				$(this).animate({"opacity":1});
+			
+			}, function() {
+				
+				$(this).animate({"opacity":0.6});
+			
+			});
+			
+			//click larger image 
+			function displayNone() {
+				$("div#automatic").css("display","none");
+				$("div#sapphire").css("display","none");
+				$("div#bold").css("display","none");
+				$("div#edge").css("display","none");
+				$("div#heritage").css("display","none");
+				$("div#museum").css("display","none");	
+			}
+			
+			$("#heritagePic").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#heritage").fadeToggle('6000', "easeInExpo");
+				$("#hover div#about").hide();
+			});
+			
+			$("#sapphirePic").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#sapphire").fadeToggle('6000', "easeInExpo");
+				$("#hover div#about").hide();
+			});
+			
+			$("#automaticPic").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#automatic").fadeToggle('6000', "easeInExpo");
+				$("#hover div#about").hide();
+			});
+			
+			$("#boldPic").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#bold").fadeToggle('6000', "easeInExpo");
+				$("#hover div#about").hide();
+			});
+			
+			$("#edgePic").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#edge").fadeToggle('6000', "easeInExpo");
+				$("#hover div#about").hide();
+			});
+			
+			$("#museumPic").click(function(e){
+				e.preventDefault();
+				displayNone();
+				$("#museum").fadeToggle('6000', "easeInExpo");
+				$("#hover div#about").hide();
+			});
+			
+        });//end of ready
+	</script>
+</body>
+</html>

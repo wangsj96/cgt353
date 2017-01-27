@@ -1,0 +1,202 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#dfdfdf;	
+}
+#content{
+	width:100%;
+	margin:0 auto;
+	position: relative;
+}
+h1{
+	font-family:"MS Serif", "New York", serif;
+	font-size:60px;
+	text-align:center;
+	margin:0;
+	font-weight:100;
+}
+#container{
+	width:770px;
+	position:relative;
+	margin: 10px auto 30px 150px;
+	float:left;
+}
+#output h3{
+	margin:0;
+	padding-bottom:10px;
+	text-align:center;
+	font-family:"Lucida Calligraphy";
+	font-size:36px;
+	margin-right:25px;
+}
+.pics{
+	width:750px;
+	height:750px;
+	background-color:#F0F0F0;
+	border:1px solid #dfdfdf;
+	box-shadow: 1px 1px 1px 1px #888888;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-khtml-border-radius:10px;
+}
+.pics img{
+	width:730px;
+	height:730px;
+	position: absolute;
+    left: 50%;
+    top: 50%; 
+    margin-top:10px;
+	margin-left:10px;
+	-webkit-filter: brightness(100%);
+	
+}
+.pics img:hover{
+	-webkit-filter: brightness(40%);
+	cursor:pointer;
+}
+#prev, #next{
+	width:30px;
+	height:59px;
+	position:absolute;
+	top:50%;
+	margin-top:-40px;
+	cursor:pointer;
+	opacity:0.5;
+	z-index:50;
+}
+#prev{
+	background:transparent url(../images/prev.png)	no-repeat top center;
+	left:20px;
+}
+#next{
+	background:transparent url(../images/next.png)	no-repeat top center;
+	right:40px;
+	
+}
+#prev:hover, #next:hover{
+	opacity:0.9;
+}
+div#nav{
+	text-align:center;	
+	list-style:none;
+	padding:0;
+	width:120px;/*change this if there are more images*/
+	margin:20px auto 0 auto;
+	position:relative;
+}
+#nav a{
+	float:left;
+	display:block;
+	text-indent:-9000px;/*	remove the li from the screen*/
+	width:13px;
+	height:13px;
+	outline:none;
+	padding:0px 3px;
+	background:transparent url(../images/dot2.png) no-repeat top center;
+}
+#nav a:hover, #nav a.activeSlide{
+	background-position:20% -30px;	
+}
+#contactForm {
+			width:410px;
+			height:250px;
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:11pt;
+			font-weight:bold;
+			position:absolute; 
+			top:250px; 
+			left:-418px;
+			background-color: rgb(97, 97, 97); 
+			background-color: rgba(97, 97, 97, .95);
+			margin:0px; 
+			z-index:110;
+		}
+		#contact span {
+			padding:0px;
+			margin:0px;
+			position:relative;
+			top:2px;
+		}
+        #contact { 
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:11pt;
+			font-weight:bold;
+			text-align:center;
+			padding-top:17px;
+			padding-bottom:0px;
+			padding-left:3px;
+			padding-right:3px;
+			position:absolute; 
+			top:350px; 
+			left:-55px; 
+			border-radius:10px;
+			background-color: rgb(177, 148, 108); 
+			background-color: rgba(177, 148, 108, .75);
+			width:123px; 
+			height:35px; 
+			margin:0px; 
+			z-index:100;
+		}
+		#contact:hover, 
+		#contact:focus {
+			background-color: rgb(177, 148, 108); 
+			background-color: rgba(177, 148, 108, .90);
+			cursor:pointer;
+		}
+        #contact.fixed,
+		#contactForm.fixed { 
+			position:fixed; 
+		}
+		#contactForm a{
+			text-decoration:none;
+			color:#54A1D1;
+		}
+		#contactForm a:hover{
+			color:#1485CC;	
+		}
+		.rotate {
+			/* Firefox */
+			-moz-transform: rotate(-90deg);
+			/* Safari */
+			-webkit-transform: rotate(-90deg);
+			/* IE */
+			-ms-transform: rotate(-90deg);
+			/* Opera */
+			-o-transform: rotate(-90deg);
+			/* Internet Explorer */
+			filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
+		}
+div#hover{
+	float:right;
+	border:1px solid grey;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-khtml-border-radius:10px;
+	margin:140px 120px auto 30px;
+	width:670px;
+	height:400px;
+	padding:20px 20px 20px 20px;
+	box-shadow: 0px 0px 0px 1px #888888;
+	display:block;
+	position:relative;
+}
+.hoverPic1{
+	margin-right:20px;
+}
+div#about{
+	text-align:center;	
+}
+div#about h1{
+	font-weight:bold;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:30px;
+	line-height:60px;
+}
+div#about p{
+	font-family:"Lucida Calligraphy";
+	line-height:30px;
+	font-weight:bold;
+}
+
